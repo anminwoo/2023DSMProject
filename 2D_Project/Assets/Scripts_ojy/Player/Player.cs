@@ -10,6 +10,8 @@ namespace Player
         public float speed;
 
         private Rigidbody2D _rigid;
+        private SpriteRenderer _spriter;
+        
         void Awake()
         {
             _rigid = GetComponent<Rigidbody2D>();
@@ -31,6 +33,13 @@ namespace Player
             onFire.Invoke();
         }
 
+        void LateUpdate()
+        {
+            if (inputVector.x != 0)
+            {
+                
+            }
+        }
         public void OnDamage()
         {
             onDamage.Invoke();
@@ -40,6 +49,8 @@ namespace Player
         {
             onParry.Invoke();
         }
+        
+        
         
         public UnityEvent onMove;
         public UnityEvent onFire;
