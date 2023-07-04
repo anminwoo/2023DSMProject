@@ -11,15 +11,18 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float attackCd;
     [SerializeField] private int hp;
     [SerializeField] private float speed;
-    [SerializeField] private float searchRange;
-    private Transform target;
+    [SerializeField] Transform target;
+    private CircleCollider2D searchCol;
+    private Vector3 dir;
 
     private Rigidbody2D rb;
+    private static readonly int HasTarget = Animator.StringToHash("hasTarget");
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        searchCol = GetComponent<CircleCollider2D>();
     }
 
     void Start()
@@ -29,10 +32,26 @@ public class Enemy : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (animator.GetBool("hasTarget"))
+        Vector3 nextVec = target.position - transform.position;
+        if (animator.GetBool(HasTarget))
         {
-            Vector3 nextVec = target.position.normalized * speed;
-            rb.MovePosition(transform.position + nextVec);
+            rb.velocity = nextVec.normalized * speed;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            animator.SetBool(HasTarget, true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            animator.SetBool(HasTarget, false);
         }
     }
 
@@ -42,7 +61,8 @@ public class Enemy : MonoBehaviour
         speed = data.speed;
         attackCd = data.attackCd;
         damage = data.damage;
-        searchRange = data.searchRange;
+        searchCol.radius = data.searchRange;
         animator.runtimeAnimatorController = data.controller;
+        if(target == null) target = GameManager.Singleton.player.transform;
     }
 }
