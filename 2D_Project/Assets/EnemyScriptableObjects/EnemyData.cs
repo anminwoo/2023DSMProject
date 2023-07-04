@@ -11,11 +11,6 @@ public class EnemyData : ScriptableObject
     public float speed;
     public float searchRange;
     
-<<<<<<< HEAD
     [Header("Animator")]
     public RuntimeAnimatorController controller;
-=======
-    [Header("Monster Type")]
-    [SerializeField] Animator animator;
->>>>>>> main
 }
