@@ -15,6 +15,7 @@ namespace Scripts_ojy
         void Awake()
         {
             _rigid = GetComponent<Rigidbody2D>();
+            _spriter = GetComponent<SpriteRenderer>();
         }
         void Update()
         {
@@ -37,7 +38,7 @@ namespace Scripts_ojy
         {
             if (inputVector.x != 0)
             {
-                
+                _spriter.flipX = inputVector.x < 0;
             }
         }
         public void OnDamage()
