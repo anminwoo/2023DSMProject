@@ -7,6 +7,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public enum AttackType
+    {
+        melee, range
+    }
     [SerializeField] private EnemyData[] data;
     [SerializeField] private Animator animator;
     public int damage;
@@ -39,7 +43,7 @@ public class Enemy : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && !isAttacking)
         {
-            StartCoroutine(Attack(GameManager.Singleton.player));
+            StartCoroutine(Attack(GameManager.Singleton.player, data[type]));
         }
     }
 
@@ -58,11 +62,11 @@ public class Enemy : MonoBehaviour
         hp -= damage;
     }
     
-    public IEnumerator Attack(Player player)
+    public IEnumerator Attack(Player player, EnemyData data)
     {
         isAttacking = true;
         animator.SetTrigger("Attack");
-        if (type == 5 || type == 6)
+        if (data.attackType == AttackType.range)
         {
             Vector3 dir = target.position - transform.position;
             float angle = MathF.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -75,6 +79,14 @@ public class Enemy : MonoBehaviour
         }
         yield return new WaitForSeconds(attackCd);
         isAttacking = false;
+    }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            animator.SetTrigger("Attack");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

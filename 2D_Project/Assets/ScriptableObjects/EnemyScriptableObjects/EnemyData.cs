@@ -10,6 +10,7 @@ public class EnemyData : ScriptableObject
     public int damage;
     public float speed;
     public float searchRange;
+    public Enemy.AttackType attackType;
     public GameObject projectile;
     
     [Header("Animator")]
