@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93c5b6b018e611245966b3a487185d67, type: 3}
+  m_Script: {fileID: 11500000, guid: 2408f1f60bc8b36488d8d4e8f8c8ea9b, type: 3}
   m_Name: armorZombie
   m_EditorClassIdentifier: 
-  hp: 0
+  maxHp: 0
   attackCd: 0
   damage: 0
   speed: 0
-  type: []
+  searchRange: 0
+  projectile: {fileID: 0}
+  controller: {fileID: 22100000, guid: 706c6b9684981334ab3ac3250249465b, type: 2}

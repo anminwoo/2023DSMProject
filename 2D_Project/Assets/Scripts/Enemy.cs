@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Scripts_ojy;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -9,12 +10,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyData[] data;
     [SerializeField] private Animator animator;
     public int damage;
-    [SerializeField] private GameObject[] projectile;
+    [SerializeField] private GameObject projectile;
     [SerializeField] private float attackCd;
     [SerializeField] private bool isAttacking;
     [SerializeField] private int hp;
     [SerializeField] private float speed;
-    [SerializeField] Transform target;
+    Transform target;
     private CircleCollider2D searchCol;
     private Vector3 dir;
     public int type;
@@ -32,6 +33,14 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         Init(data[type]);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && !isAttacking)
+        {
+            StartCoroutine(Attack(GameManager.Singleton.player));
+        }
     }
 
     void FixedUpdate()
@@ -55,7 +64,10 @@ public class Enemy : MonoBehaviour
         animator.SetTrigger("Attack");
         if (type == 5 || type == 6)
         {
-            Instantiate();
+            Vector3 dir = target.position - transform.position;
+            float angle = MathF.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            Quaternion quat = Quaternion.AngleAxis(angle, Vector3.forward);
+            Instantiate(projectile, transform.position, quat);
         }
         else
         {
@@ -89,6 +101,7 @@ public class Enemy : MonoBehaviour
         damage = data.damage;
         searchCol.radius = data.searchRange;
         animator.runtimeAnimatorController = data.controller;
+        projectile = data.projectile;
         if(target == null) target = GameManager.Singleton.player.transform;
     }
 }
