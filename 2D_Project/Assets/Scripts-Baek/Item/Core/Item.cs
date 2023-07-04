@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Item.Core
 {
@@ -6,5 +7,17 @@ namespace Item.Core
     {
         [SerializeField] private ItemInfo itemInfo;
         public ItemInfo ItemInfo => itemInfo;
+
+        private SpriteRenderer spriteRenderer;
+
+        private void Start()
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        public void Initialize()
+        {
+            spriteRenderer.sprite = itemInfo.ItemIcon;
+        }
     }
 }
