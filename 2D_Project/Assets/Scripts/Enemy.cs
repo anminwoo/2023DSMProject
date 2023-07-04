@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Scripts_ojy;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -9,11 +10,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Animator animator;
     public int damage;
     [SerializeField] private float attackCd;
+    [SerializeField] private bool isAttacking;
     [SerializeField] private int hp;
     [SerializeField] private float speed;
     [SerializeField] Transform target;
     private CircleCollider2D searchCol;
     private Vector3 dir;
+    public int type;
 
     private Rigidbody2D rb;
     private static readonly int HasTarget = Animator.StringToHash("hasTarget");
@@ -27,7 +30,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        Init(data[0]);
+        Init(data[type]);
     }
 
     void FixedUpdate()
@@ -37,6 +40,28 @@ public class Enemy : MonoBehaviour
         {
             rb.velocity = nextVec.normalized * speed;
         }
+    }
+
+    public void Damaged(int damage)
+    {
+        animator.SetTrigger("Damaged");
+        hp -= damage;
+    }
+    
+    public IEnumerator Attack(Player player)
+    {
+        isAttacking = true;
+        animator.SetTrigger("Attack");
+        if (type == 5 || type == 6)
+        {
+            Instantiate();
+        }
+        else
+        {
+            // 플레이어 체력--;
+        }
+        yield return new WaitForSeconds(attackCd);
+        isAttacking = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
