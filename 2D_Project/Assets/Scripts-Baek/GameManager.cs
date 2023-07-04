@@ -1,4 +1,5 @@
 ﻿using System;
+using Scripts_ojy;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,7 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Singleton
     {
         get => _singleton;
-        set
+        private set
         {
             if (_singleton == null)
             {
@@ -27,5 +28,5 @@ public class GameManager : MonoBehaviour
         Singleton = this;
     }
 
-    public Player.Player player;
+    public Player player;
 }
