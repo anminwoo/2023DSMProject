@@ -16,4 +16,4 @@ MonoBehaviour:
   attackCd: 0
   damage: 0
   speed: 0
-  type: []
+  _animator: {fileID: 0}
