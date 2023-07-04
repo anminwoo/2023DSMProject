@@ -11,5 +11,5 @@ public class EnemyData : ScriptableObject
     [SerializeField] private float speed;
     
     [Header("Monster Type")]
-    [SerializeField] Animator _animator;
+    [SerializeField] Animator animator;
 }
