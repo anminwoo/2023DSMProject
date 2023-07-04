@@ -10,14 +10,7 @@ namespace Item.Core
         Epic,
         Legend
     }
-    [Flags]
-    public enum ItemSpawn
-    {
-        Nothing,
-        Box,
-        Shop,
-        Boss
-    }
+
     [CreateAssetMenu(menuName = "Item/ItemInfo", fileName = "new ItemInfo")]
     public class ItemInfo : ScriptableObject
     {
@@ -39,8 +32,5 @@ namespace Item.Core
         
         [SerializeField] private uint itemCost;
         public uint ItemCost => itemCost;
-
-        [SerializeField] private ItemSpawn itemSpawn;
-        public ItemSpawn ItemSpawn => itemSpawn;
     }
 }

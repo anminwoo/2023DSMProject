@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-namespace Player
+namespace Scripts_ojy
 {
     public class Player : MonoBehaviour
     {
