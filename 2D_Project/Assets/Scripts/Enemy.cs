@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyData[] data;
     [SerializeField] private Animator animator;
     public int damage;
+    [SerializeField] private GameObject[] projectile;
     [SerializeField] private float attackCd;
     [SerializeField] private bool isAttacking;
     [SerializeField] private int hp;
