@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    private Vector2 InputVector;
+    [SerializeField] private Vector2 InputVector;
     public float speed;
 
     private Rigidbody2D rigid;
@@ -15,7 +16,8 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-        rigid.AddForce(InputVector * speed);
+        Vector2 nextVector = InputVector.normalized * speed;
+        rigid.velocity = nextVector;
     }
 
     void OnMove(InputValue value)

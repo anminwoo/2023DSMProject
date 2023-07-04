@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 1796555229}
   - component: {fileID: 1796555233}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -338,6 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83c7172b7b1c62d4983c954a471e3b8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InputVector: {x: 0, y: 0}
   speed: 8
 --- !u!50 &1796555233
 Rigidbody2D:
@@ -352,7 +353,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 5
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
