@@ -1,10 +1,25 @@
 namespace Item.Core
 {
-    public abstract class Passive : Item
+    public class Passive : Item
     {
-        public abstract void IOnGet();
-        public abstract void IOnMove();
-        public abstract void IOnDamage();
-        public abstract void IOnFire();
+        public virtual void OnGet()
+        {
+            
+        }
+
+        public virtual void OnMove()
+        {
+            
+        }
+
+        public virtual void OnFire()
+        {
+            
+        }
+
+        public virtual void OnDamage()
+        {
+            
+        }
     }
 }
