@@ -1,28 +1,49 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
+namespace Player
 {
-    [SerializeField] private Vector2 InputVector;
-    public float speed;
+    public class Player : MonoBehaviour
+    {
+        [SerializeField] private Vector2 inputVector;
+        public float speed;
 
-    private Rigidbody2D rigid;
-    void Awake()
-    {
-        rigid = GetComponent<Rigidbody2D>();
-    }
-    void Update()
-    {
-        Vector2 nextVector = InputVector.normalized * speed;
-        rigid.velocity = nextVector;
-    }
+        private Rigidbody2D _rigid;
+        void Awake()
+        {
+            _rigid = GetComponent<Rigidbody2D>();
+        }
+        void Update()
+        {
+            Vector2 nextVector = inputVector.normalized * speed;
+            _rigid.velocity = nextVector;
+        }
 
-    void OnMove(InputValue value)
-    {
-        InputVector = value.Get<Vector2>();
+        void OnMove(InputValue value)
+        {
+            inputVector = value.Get<Vector2>();
+            onMove.Invoke();
+        }
+
+        void OnFire(InputValue value)
+        {
+            onFire.Invoke();
+        }
+
+        public void OnDamage()
+        {
+            onDamage.Invoke();
+        }
+
+        public void OnParry()
+        {
+            onParry.Invoke();
+        }
+        
+        public UnityEvent onMove;
+        public UnityEvent onFire;
+        public UnityEvent onDamage;
+        public UnityEvent onParry;
     }
-    
 }
