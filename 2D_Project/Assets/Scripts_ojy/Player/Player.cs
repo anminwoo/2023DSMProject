@@ -10,13 +10,13 @@ namespace Scripts_ojy
         public float speed;
 
         private Rigidbody2D _rigid;
-        private SpriteRenderer _spriter;
+        private SpriteRenderer _sr;
         private Animator _anim;
         
         void Awake()
         {
             _rigid = GetComponent<Rigidbody2D>();
-            _spriter = GetComponent<SpriteRenderer>();
+            _sr = GetComponent<SpriteRenderer>();
             _anim = GetComponent<Animator>();
         }
         void Update()
@@ -38,10 +38,10 @@ namespace Scripts_ojy
 
         void LateUpdate()
         {
-            _anim.SetFloat("Speed", inputVector.magnitude);
+            _anim.SetBool("IsWalk", inputVector != Vector2.zero);
             if (inputVector.x != 0)
             {
-                _spriter.flipX = inputVector.x < 0;
+                _sr.flipX = inputVector.x < 0;
             }
             
         }
@@ -54,8 +54,6 @@ namespace Scripts_ojy
         {
             onParry.Invoke();
         }
-        
-        
         
         public UnityEvent onMove;
         public UnityEvent onFire;
