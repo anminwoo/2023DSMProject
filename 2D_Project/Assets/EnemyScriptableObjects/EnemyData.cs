@@ -5,11 +5,12 @@ using UnityEngine;
 public class EnemyData : ScriptableObject
 {
     [Header("Stat")]
-    [SerializeField] int hp;
-    [SerializeField] float attackCd;
-    [SerializeField] private int damage;
-    [SerializeField] private float speed;
+    public int maxHp;
+    public float attackCd;
+    public int damage;
+    public float speed;
+    public float searchRange;
     
-    [Header("Monster Type")]
-    [SerializeField] Animator animator;
+    [Header("Animator")]
+    public RuntimeAnimatorController controller;
 }
