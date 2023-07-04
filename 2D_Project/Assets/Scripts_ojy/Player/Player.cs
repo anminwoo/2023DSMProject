@@ -11,11 +11,13 @@ namespace Scripts_ojy
 
         private Rigidbody2D _rigid;
         private SpriteRenderer _spriter;
+        private Animator _anim;
         
         void Awake()
         {
             _rigid = GetComponent<Rigidbody2D>();
             _spriter = GetComponent<SpriteRenderer>();
+            _anim = GetComponent<Animator>();
         }
         void Update()
         {
@@ -36,10 +38,12 @@ namespace Scripts_ojy
 
         void LateUpdate()
         {
+            _anim.SetFloat("Speed", inputVector.magnitude);
             if (inputVector.x != 0)
             {
                 _spriter.flipX = inputVector.x < 0;
             }
+            
         }
         public void OnDamage()
         {
