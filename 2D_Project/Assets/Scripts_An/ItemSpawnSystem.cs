@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Scripts_Baek.Item.Core;
@@ -23,7 +24,12 @@ public class ItemSpawnSystem : MonoBehaviour
             }
         }
     }
-    
+
+    private void Awake()
+    {
+        _singleton = this;
+    }
+
     public void SpawnItem(GameObject item, Transform spawnPos)
     {
         Instantiate(item, spawnPos.position, Quaternion.identity);

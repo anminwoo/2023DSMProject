@@ -1,3 +1,5 @@
+using System;
+using DG.Tweening;
 using Scripts_Baek.Item.Core;
 using UnityEngine;
 
@@ -8,21 +10,17 @@ namespace Scripts_An
         [SerializeField] private ChestData chestData;
         [SerializeField] private bool isOpen;
 
-        private Item _item;
+        [SerializeField] private float destroyTime;
+
+        [SerializeField] private GameObject item;
         private Animator _animator;
+        private SpriteRenderer spriteRenderer;
 
         private void Start()
         {
-            _item = chestData.spawnableItems.GetRandom();
+            item = chestData.spawnableItems.GetRandom();
             _animator = GetComponent<Animator>();
-        }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                Interact();
-            }
+            spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         public void Interact()
@@ -39,8 +37,16 @@ namespace Scripts_An
         {
             isOpen = true;
             _animator.SetTrigger("Open");
-            // Item.Core.Item spawnItem = Instantiate(item, transform.position, quaternion.identity);
-            // spawnItem.Initialize();
+            ItemSpawnSystem.Singleton.SpawnItem(item, transform);
+            spriteRenderer.DOFade(0, destroyTime).OnComplete(() => Destroy(gameObject));
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                Interact();
+            }
         }
     }
 }
