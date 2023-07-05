@@ -8,7 +8,6 @@ public class PoolManager : MonoBehaviour
 {
     public static PoolManager instance;
     [SerializeField] Enemy enemyPrefab;
-    [SerializeField] private int defaultCap;
     [SerializeField] private int maxPoolSize;
     private IObjectPool<Enemy> enemyPool;
 
@@ -22,8 +21,7 @@ public class PoolManager : MonoBehaviour
             onRelease,
             onDestroy,
             false,
-            defaultCap,
-            maxPoolSize);
+            maxSize:maxPoolSize);
     }
 
     private Enemy SpawnEnemy()
@@ -50,6 +48,7 @@ public class PoolManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            
             enemyPool.Get();
         }
     }

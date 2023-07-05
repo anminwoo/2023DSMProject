@@ -44,11 +44,6 @@ public class Enemy : MonoBehaviour
         spr = GetComponent<SpriteRenderer>();
     }
 
-    void Start()
-    {
-        Init(data[type]);
-    }
-
     void FixedUpdate()
     {
         Vector3 nextVec = target.position - transform.position;
@@ -59,13 +54,16 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    IEnumerator damaged()
+    {
+        yield return new WaitForSeconds(3f);
+        Damaged(3);
+    }
+
     public void Damaged(int damage)
     {
         animator.SetTrigger("Damaged");
-        if (this.damage > 0)
-        {
-            hp -= damage;
-        }
+        hp -= damage;
         if (hp <= 0)
         {
             enemyPool.Release(this);
@@ -123,15 +121,43 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void Init(EnemyData data)
+    IEnumerator addAlpha()
     {
-        hp = data.maxHp;
-        speed = data.speed;
-        attackCd = data.attackCd;
-        damage = data.damage;
-        searchCol.radius = data.searchRange;
-        animator.runtimeAnimatorController = data.controller;
-        projectile = data.projectile;
-        if(target == null) target = GameManager.Singleton.player.transform;
+        for (float i = 0; i <= 1; i += 0.02f)
+        {
+            yield return new WaitForSeconds(0.01f);
+            spr.color = new Color(1, 1, 1, i);
+        }
     }
+
+    private void OnEnable()
+    {
+        EnemyData d = data[type];
+        spr.color = new Color(1,1,1,0);
+        StartCoroutine(addAlpha());
+        hp = d.maxHp;
+        speed = d.speed;
+        attackCd = d.attackCd;
+        damage = d.damage;
+        searchCol.radius = d.searchRange;
+        animator.runtimeAnimatorController = d.controller;
+        projectile = d.projectile;
+        if(target == null) target = GameManager.Singleton.player.transform;
+        StartCoroutine(damaged());
+    }
+
+    // public void Init(EnemyData data)
+    // {
+    //     spr.color = new Color(1,1,1,0);
+    //     StartCoroutine(addAlpha());
+    //     hp = data.maxHp;
+    //     speed = data.speed;
+    //     attackCd = data.attackCd;
+    //     damage = data.damage;
+    //     searchCol.radius = data.searchRange;
+    //     animator.runtimeAnimatorController = data.controller;
+    //     projectile = data.projectile;
+    //     if(target == null) target = GameManager.Singleton.player.transform;
+    //     StartCoroutine(damaged());
+    // }
 }
