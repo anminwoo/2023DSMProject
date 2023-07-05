@@ -11,7 +11,7 @@ public class PoolManager : MonoBehaviour
     [SerializeField] Enemy enemyPrefab;
     [SerializeField] private Transform[] spawnPos;
     [SerializeField] private int maxPoolSize;
-    private IObjectPool<Enemy> enemyPool;
+    public IObjectPool<Enemy> enemyPool;
 
     private void Awake()
     {
@@ -36,6 +36,8 @@ public class PoolManager : MonoBehaviour
     }
     public void onGet(Enemy enemy)
     {
+        int ranPos = Random.Range(0, spawnPos.Length);
+        enemy.transform.position = spawnPos[ranPos].position;
         enemy.gameObject.SetActive(true);
     }
     public void onRelease(Enemy enemy)

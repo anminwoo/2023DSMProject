@@ -28,6 +28,10 @@ public class BattleSystem : MonoBehaviour
 
     public BoxCollider2D[] lockers;
 
+    public Wave[] waves;
+
+    public int currentWave;
+
     private void Awake()
     {
         Singleton = this;
@@ -40,6 +44,13 @@ public class BattleSystem : MonoBehaviour
         {
             lockers[i].isTrigger = false;
         }
+
+        for (int i = 0; i < waves[currentWave].enemySpawnCount; i++)
+        {
+            PoolManager.instance.enemyPool.Get();
+        }
+
+        currentWave++;
     }
 
     public void BattleStop()
@@ -49,5 +60,11 @@ public class BattleSystem : MonoBehaviour
         {
             lockers[i].isTrigger = true;
         }
+    }
+
+    [Serializable]
+    public struct Wave
+    {
+        public int enemySpawnCount;
     }
 }
