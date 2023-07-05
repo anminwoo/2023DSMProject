@@ -19,12 +19,14 @@ public class GraveKeeper : MonoBehaviour
     [SerializeField] private float enemyDieTime;
     [SerializeField] private float summonRange;
     [SerializeField] private GameObject[] pattern;
+    private Animator anim;
     private SpriteRenderer spr;
     private Transform target;
 
     private void Awake()
     {
         spr = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     private void Start()
@@ -49,6 +51,7 @@ public class GraveKeeper : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(attackCd);
+            anim.SetTrigger("Attack");
             int skill = Random.Range(0, pattern.Length+1);
         
             switch (skill)

@@ -135,7 +135,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    public void OnEnable()
     {
         EnemyData d = data[type];
         spr.color = new Color(1,1,1,0);

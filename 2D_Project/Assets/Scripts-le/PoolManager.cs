@@ -29,8 +29,8 @@ public class PoolManager : MonoBehaviour
     private Enemy SpawnEnemy()
     {
         Enemy enemy = Instantiate(enemyPrefab, transform);
-        int ranPos = Random.Range(0, spawnPos.Length);
-        enemy.transform.position = spawnPos[ranPos].position;
+        enemy.type = Random.Range(0, enemy.data.Length);
+        enemy.OnEnable();
         enemy.SetPool(enemyPool);
         return enemy;
     }
