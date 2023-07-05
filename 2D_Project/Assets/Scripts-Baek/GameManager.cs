@@ -3,6 +3,7 @@ using Scripts_Baek.Item.Core;
 using Scripts_ojy;
 using Scripts_ojy.Player;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Scripts_Baek
 {
@@ -33,28 +34,27 @@ namespace Scripts_Baek
         }
 
         public Player player;
-        public GameObject passives;
         public AttackType currentAttackType = AttackType.Sword;
         
-        [SerializeField] private List<Passive> _passives;
+        [SerializeField] private List<Passive> passives;
         
-        public List<Passive> GetPassive => _passives;
+        public List<Passive> GetPassive => passives;
 
         public void AddItem(Passive item)
         {
-            _passives.Add(item);
+            passives.Add(item);
             CheckItem();
         }
 
         public void RemoveItem(int index)
         {
-            _passives.RemoveAt(index);
+            passives.RemoveAt(index);
             CheckItem();
         }
         private void CheckItem()
         {
             player.Init(player.statusData.status);
-            foreach (Passive p in _passives)
+            foreach (Passive p in passives)
             {
                 if ((p.Type & PassiveType.StatusChange) == PassiveType.StatusChange)
                 {
@@ -67,7 +67,7 @@ namespace Scripts_Baek
                     else if (player.currentHp > player.currentStatus.maxHp) player.currentHp = player.currentStatus.maxHp;
                 }
 
-                if ((p.Type & PassiveType.AttackChange) == PassiveType.AttackChange)
+                if ((p.Type & PassiveType.AttackChange) == PassiveType.AttackChange && p.Type != PassiveType.Nothing)
                 {
                     currentAttackType = p.attackType;
                 }

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d79278ceb494554aab850d017468858, type: 3}
-  m_Name: AllStatus
+  m_Name: Debug
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 0}
-  itemGrade: 1
-  itemName: "\uC62C\uC2A4\uD15F \uC99D\uAC00"
-  itemDescription: "\uBAA8\uB4E0 \uC2A4\uD14C\uC774\uD130\uC2A4\uB97C \uC544\uC8FC
-    \uC870\uAE08 \uC99D\uAC00\uC2DC\uD0A8\uB2E4."
-  itemCost: 10
+  itemIcon: {fileID: -1982627368618908731, guid: 678058abcbfe36f42902c11d9e5f64fc,
+    type: 3}
+  itemGrade: 0
+  itemName: 
+  itemDescription: 
+  itemCost: 0

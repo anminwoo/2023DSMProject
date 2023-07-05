@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Scripts_Baek.Item.Core;
+using UnityEditor;
 using UnityEngine;
 
 public class ItemSpawnSystem : MonoBehaviour
@@ -30,8 +31,9 @@ public class ItemSpawnSystem : MonoBehaviour
         _singleton = this;
     }
 
-    public void SpawnItem(GameObject item, Transform spawnPos)
+    public Item SpawnItem(GameObject item, Transform spawnPos)
     {
-        Instantiate(item, spawnPos.position, Quaternion.identity);
+        GameObject g = Instantiate(item, spawnPos.position, Quaternion.identity);
+        return g.GetComponent<Item>();
     }
 }

@@ -29,12 +29,18 @@ namespace Scripts_ojy.Player
         {
             Vector2 nextVector = inputVector.normalized * currentStatus.speed;
             _rigid.velocity = nextVector;
+            if (_rigid.velocity != Vector2.zero) onMove?.Invoke();
         }
 
+        private void OnUseItem(InputValue value)
+        {
+            currentActive?.OnUse();
+        }
+        
         void OnMove(InputValue value)
         {
             inputVector = value.Get<Vector2>();
-            onMove?.Invoke();
+            
         }
 
         void OnFire(InputValue value)
@@ -76,7 +82,7 @@ namespace Scripts_ojy.Player
         public UnityEvent<Enemy> onDamage;
         public UnityEvent<Enemy> onParry;
         public UnityEvent onDeath;
-
+        
         public void Init(Status status)
         {
             currentStatus.maxHp = status.maxHp;

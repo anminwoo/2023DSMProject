@@ -9,12 +9,12 @@ namespace Scripts_Baek.Item.Core
         public ItemInfo ItemInfo => itemInfo;
 
         private SpriteRenderer _spriteRenderer;
-        protected Collider2D collider2D;
+        protected Collider2D Collider2D;
 
         private void Start()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
-            collider2D = GetComponent<Collider2D>();
+            Collider2D = GetComponent<Collider2D>();
         }
 
         public void Initialize()

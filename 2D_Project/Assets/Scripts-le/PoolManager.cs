@@ -36,6 +36,8 @@ public class PoolManager : MonoBehaviour
     }
     public void onGet(Enemy enemy)
     {
+        int ranPos = Random.Range(0, spawnPos.Length);
+        enemy.transform.position = spawnPos[ranPos].position;
         enemy.gameObject.SetActive(true);
     }
     public void onRelease(Enemy enemy)
