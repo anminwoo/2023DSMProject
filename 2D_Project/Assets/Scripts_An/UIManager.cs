@@ -10,8 +10,8 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
     
-    private Slider hpSlider;
-    private TextMeshProUGUI goldText;
+    public Slider hpSlider;
+    public TextMeshProUGUI goldText;
 
     private void Awake()
     {

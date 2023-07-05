@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour, IDamagable
     public void GetDamage(int damage)
     {
         currentHp -= damage;
+        UIManager.instance.hpSlider.value = currentHp;
         AudioManager.instance.playSfx(AudioManager.Sfx.PlaDam);
         if (currentHp <= 0)
         {
