@@ -2,8 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Scripts_Baek;
-using Scripts_ojy;
-using Scripts_ojy.Player;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -70,7 +68,7 @@ public class Enemy : MonoBehaviour
         enemyPool.Release(this);
     }
     
-    public IEnumerator Attack(Player player)
+    public IEnumerator Attack(PlayerController player)
     {
         animator.SetTrigger("Attack");
         animator.SetBool("isAttacking", true);
@@ -83,7 +81,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            player.currentHp -= damage;
+            player.GetDamage(damage);
         }
         yield return new WaitForSeconds(attackCd);
         animator.SetBool("isAttacking", false);
@@ -93,7 +91,7 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && !animator.GetBool("isAttacking") )
         {
-            StartCoroutine(Attack(other.gameObject.GetComponent<Player>()));
+            StartCoroutine(Attack(other.gameObject.GetComponent<PlayerController>()));
         }
     }
     
@@ -109,7 +107,7 @@ public class Enemy : MonoBehaviour
     {
         if (other.CompareTag("Player") && data[type].attackType == AttackType.Range && !animator.GetBool("isAttacking"))
         {
-            StartCoroutine(Attack(other.gameObject.GetComponent<Player>()));
+            StartCoroutine(Attack(other.gameObject.GetComponent<PlayerController>()));
         }
     }
 

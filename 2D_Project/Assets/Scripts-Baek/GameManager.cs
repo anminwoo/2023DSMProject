@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Scripts_Baek.Item.Core;
-using Scripts_ojy;
-using Scripts_ojy.Player;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -29,6 +27,8 @@ namespace Scripts_Baek
             }
         }
 
+        public PlayerController player;
+        
         private void Start()
         {
             AudioManager.instance.PlayBgm(true);
@@ -39,45 +39,5 @@ namespace Scripts_Baek
             Singleton = this;
         }
 
-        public Player player;
-        public AttackType currentAttackType = AttackType.Sword;
-        
-        [SerializeField] private List<Passive> passives;
-        
-        public List<Passive> GetPassive => passives;
-
-        public void AddItem(Passive item)
-        {
-            passives.Add(item);
-            CheckItem();
-        }
-
-        public void RemoveItem(int index)
-        {
-            passives.RemoveAt(index);
-            CheckItem();
-        }
-        private void CheckItem()
-        {
-            player.Init(player.statusData.status);
-            foreach (Passive p in passives)
-            {
-                if ((p.Type & PassiveType.StatusChange) == PassiveType.StatusChange)
-                {
-                    player.currentStatus.damage += p.Change.damage;
-                    player.currentStatus.defensive += p.Change.defensive;
-                    player.currentStatus.shield += p.Change.shield;
-                    player.currentStatus.speed += p.Change.speed;
-                    player.currentStatus.maxHp += p.Change.maxHp;
-                    if (player.currentStatus.maxHp <= 0) player.OnDeath();
-                    else if (player.currentHp > player.currentStatus.maxHp) player.currentHp = player.currentStatus.maxHp;
-                }
-
-                if ((p.Type & PassiveType.AttackChange) == PassiveType.AttackChange && p.Type != PassiveType.Nothing)
-                {
-                    currentAttackType = p.attackType;
-                }
-            }
-        }
     }
 }
