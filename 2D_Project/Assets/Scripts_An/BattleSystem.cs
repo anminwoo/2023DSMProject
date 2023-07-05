@@ -17,7 +17,7 @@ public class BattleSystem : MonoBehaviour
                 _singleton = value;
             }
             else if (_singleton	!= value)
-            {
+            {   
                 Debug.Log("경고 : 이미 배틀시스템이 존재합니다!");
                 Destroy(value.gameObject);
             }
