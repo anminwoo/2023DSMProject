@@ -18,19 +18,24 @@ namespace Scripts_Baek.Item.Core
     }
     public abstract class Passive : Item
     {
-        [SerializeField] protected PassiveType type;
+        public PassiveType Type;
 
-        [SerializeField] protected ChangeStatus change;
-        public PassiveType Type => type;
-        public ChangeStatus Change => change;
+        public ChangeStatus Change;
+
+        public AttackType attackType;
 
         private void OnCollisionEnter2D(Collision2D other)
         {
             if (other.transform.CompareTag("Player"))
             {
                 GameManager.Singleton.AddItem(this);
+                OnGet();
+                gameObject.GetComponent<Collider2D>().enabled = false;
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
             }
         }
+        
+        
 
         public virtual void OnGet()
         {

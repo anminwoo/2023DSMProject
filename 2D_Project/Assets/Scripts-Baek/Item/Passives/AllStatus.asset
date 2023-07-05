@@ -15,5 +15,6 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemGrade: 1
   itemName: "\uC62C\uC2A4\uD15F \uC99D\uAC00"
-  itemDescription: "\uBAA8\uB4E0 \uC2A4\uD14C\uC774\uD130\uC2A4\uB97C \uC99D\uAC00\uC2DC\uD0A8\uB2E4."
+  itemDescription: "\uBAA8\uB4E0 \uC2A4\uD14C\uC774\uD130\uC2A4\uB97C \uC544\uC8FC
+    \uC870\uAE08 \uC99D\uAC00\uC2DC\uD0A8\uB2E4."
   itemCost: 10

@@ -7,6 +7,7 @@ namespace Scripts_Baek.Item.Passives
     {
         public override void OnGet()
         {
+            base.OnGet();
             Debug.Log("디버그 아이템 획득");
         }
 

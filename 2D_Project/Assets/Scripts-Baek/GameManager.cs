@@ -33,9 +33,10 @@ namespace Scripts_Baek
         }
 
         public Player player;
+        public GameObject passives;
         public AttackType currentAttackType = AttackType.Sword;
         
-        private List<Passive> _passives;
+        [SerializeField] private List<Passive> _passives;
         
         public List<Passive> GetPassive => _passives;
 
@@ -55,13 +56,21 @@ namespace Scripts_Baek
             player.Init(player.statusData.status);
             foreach (Passive p in _passives)
             {
-                player.currentStatus.damage += p.Change.damage;
-                player.currentStatus.defensive += p.Change.defensive;
-                player.currentStatus.shield += p.Change.shield;
-                player.currentStatus.speed += p.Change.speed;
-                player.currentStatus.maxHp += p.Change.maxHp;
-                if (player.currentStatus.maxHp <= 0) player.OnDeath();
-                else if (player.currentHp > player.currentStatus.maxHp) player.currentHp = player.currentStatus.maxHp;
+                if ((p.Type & PassiveType.StatusChange) == PassiveType.StatusChange)
+                {
+                    player.currentStatus.damage += p.Change.damage;
+                    player.currentStatus.defensive += p.Change.defensive;
+                    player.currentStatus.shield += p.Change.shield;
+                    player.currentStatus.speed += p.Change.speed;
+                    player.currentStatus.maxHp += p.Change.maxHp;
+                    if (player.currentStatus.maxHp <= 0) player.OnDeath();
+                    else if (player.currentHp > player.currentStatus.maxHp) player.currentHp = player.currentStatus.maxHp;
+                }
+
+                if ((p.Type & PassiveType.AttackChange) == PassiveType.AttackChange)
+                {
+                    currentAttackType = p.attackType;
+                }
             }
         }
     }

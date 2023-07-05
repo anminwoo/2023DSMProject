@@ -34,12 +34,12 @@ namespace Scripts_ojy.Player
         void OnMove(InputValue value)
         {
             inputVector = value.Get<Vector2>();
-            onMove.Invoke();
+            onMove?.Invoke();
         }
 
         void OnFire(InputValue value)
         {
-            onFire.Invoke();
+            onFire?.Invoke();
         }
 
         void LateUpdate()
@@ -58,17 +58,17 @@ namespace Scripts_ojy.Player
             finalDamage = damage;
             finalDamage -= currentStatus.defensive;
             currentHp -= finalDamage;
-            onDamage.Invoke(e);
+            onDamage?.Invoke(e);
         }
 
         public void OnParry(Enemy e)
         {
-            onParry.Invoke(e);
+            onParry?.Invoke(e);
         }
 
         public void OnDeath()
         {
-            onDeath.Invoke();
+            onDeath?.Invoke();
         }
         
         public UnityEvent onMove;
