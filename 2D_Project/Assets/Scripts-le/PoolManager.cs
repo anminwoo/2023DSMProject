@@ -28,11 +28,10 @@ public class PoolManager : MonoBehaviour
 
     private Enemy SpawnEnemy()
     {
-        Enemy enemy = Instantiate(enemyPrefab);
+        Enemy enemy = Instantiate(enemyPrefab, transform);
         enemy.SetPool(enemyPool);
         return enemy;
     }
-
     public void onGet(Enemy enemy)
     {
         enemy.gameObject.SetActive(true);
