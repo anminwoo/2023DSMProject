@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   status:
     maxHp: 0
-    currentHp: 0
     shield: 0
     damage: 0
-    speed: 0
+    speed: 7
     defensive: 0
