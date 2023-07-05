@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91985f501dc842d19b85babd450f97b4, type: 3}
   m_Name: WoodenChestData
   m_EditorClassIdentifier: 
-  spawnableItems:
-    list:
-    - item: {fileID: 7843913498594148245, guid: ea13252f3a83c9c44a88b34416713f6c,
-        type: 3}
-      weight: 1
+  itemData:
+  - {fileID: 11400000, guid: a2b2b9dfdb8e170439355a88998141b7, type: 2}
+  - {fileID: 11400000, guid: a8c857837bb1a65499412fcef33b2f18, type: 2}
+  - {fileID: 11400000, guid: 8976c57ea140a744bb2781963298e02d, type: 2}

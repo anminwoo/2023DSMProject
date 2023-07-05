@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91985f501dc842d19b85babd450f97b4, type: 3}
   m_Name: GoldenChest
   m_EditorClassIdentifier: 
-  spawnableItems:
-    list: []
+  itemData:
+  - {fileID: 11400000, guid: a6871d770396f38438d669593ab8a5fe, type: 2}
+  - {fileID: 11400000, guid: 0c0e7fb8a06f86f4e81f6934f2bf5fa9, type: 2}
+  - {fileID: 11400000, guid: 0db4feb35ebe6274891c52825ed15acc, type: 2}

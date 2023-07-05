@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: HpUp 2
   m_EditorClassIdentifier: 
   damage: 0
-  hp: 20
+  hp: 10
   speed: 0

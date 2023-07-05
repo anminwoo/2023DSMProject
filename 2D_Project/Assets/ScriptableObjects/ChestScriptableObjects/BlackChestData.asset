@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91985f501dc842d19b85babd450f97b4, type: 3}
   m_Name: BlackChestData
   m_EditorClassIdentifier: 
-  spawnableItems:
-    list: []
-  animationClip: {fileID: 0}
-  chestSprite: {fileID: 0}
+  itemData:
+  - {fileID: 11400000, guid: 65155a3ea9fba3e449304427afc4407c, type: 2}
+  - {fileID: 11400000, guid: 4b82f3940eea31e43808dff59f126a5e, type: 2}
+  - {fileID: 11400000, guid: 2d081704cd4917a49bc661a16bb0c2a7, type: 2}

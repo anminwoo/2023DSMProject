@@ -28,6 +28,8 @@ namespace Scripts_Baek
         }
 
         public PlayerController player;
+
+        public int gold;
         
         private void Start()
         {

@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Serialization;
 
 [CreateAssetMenu(menuName = "ChestData", fileName = "new Chest")]
 public class ChestData : ScriptableObject
 {
-    public WeightedRandom<GameObject> spawnableItems;
+    public List<ItemData> itemData;
 }
