@@ -9,16 +9,12 @@ namespace Scripts_An
         [SerializeField] private bool isOpen;
 
         private Item _item;
-        private SpriteRenderer _spriteRenderer;
         private Animator _animator;
-        private AnimationClip _clip;
 
         private void Start()
         {
             _item = chestData.spawnableItems.GetRandom();
-            _spriteRenderer = GetComponent<SpriteRenderer>();
             _animator = GetComponent<Animator>();
-            _spriteRenderer.sprite = chestData.chestSprite;
         }
 
         private void Update()
@@ -42,7 +38,7 @@ namespace Scripts_An
         public void Open()
         {
             isOpen = true;
-            _animator.SetTrigger("open");
+            _animator.SetTrigger("Open");
             // Item.Core.Item spawnItem = Instantiate(item, transform.position, quaternion.identity);
             // spawnItem.Initialize();
         }
