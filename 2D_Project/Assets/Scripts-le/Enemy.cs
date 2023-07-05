@@ -83,9 +83,9 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && !isAttacking)
         {
-            animator.SetTrigger("Attack");
+            StartCoroutine(Attack(other.gameObject.GetComponent<Player>(), data[type]));
         }
     }
 
