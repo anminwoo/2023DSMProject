@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2862646963893441359}
   - component: {fileID: 4985005033891021938}
   - component: {fileID: -7531722986907632209}
+  - component: {fileID: 6353823933106371962}
   m_Layer: 0
   m_Name: FInalBoss
   m_TagString: Untagged
@@ -145,3 +146,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0.012683153, y: 0.05073285}
   m_Size: {x: 1.9242883, y: 1.9242883}
   m_Direction: 0
+--- !u!114 &6353823933106371962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2862646963893441344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790852e711bd7c84d9f680e1495ac65b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

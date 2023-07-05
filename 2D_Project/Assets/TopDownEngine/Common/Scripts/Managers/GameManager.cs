@@ -566,5 +566,9 @@ namespace MoreMountains.TopDownEngine
 			this.MMEventStopListening<TopDownEngineEvent> ();
 			this.MMEventStopListening<TopDownEnginePointEvent> ();
 		}
+
+		public class Singleton
+		{
+		}
 	}
 }
