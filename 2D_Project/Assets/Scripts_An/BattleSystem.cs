@@ -33,19 +33,6 @@ public class BattleSystem : MonoBehaviour
         Singleton = this;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            BattleStart();
-        }
-
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            BattleStop();
-        }
-    }
-
     public void BattleStart()
     {
         isBattle = true;
