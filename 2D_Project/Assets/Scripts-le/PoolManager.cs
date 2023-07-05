@@ -11,7 +11,7 @@ public class PoolManager : MonoBehaviour
     [SerializeField] Enemy enemyPrefab;
     [SerializeField] private Transform[] spawnPos;
     [SerializeField] private int maxPoolSize;
-    private IObjectPool<Enemy> enemyPool;
+    public IObjectPool<Enemy> enemyPool;
 
     private void Awake()
     {

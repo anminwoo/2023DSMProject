@@ -1,0 +1,72 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Scripts_Baek;
+using UnityEngine;
+using Random = UnityEngine.Random;
+
+public class GraveKeeper : MonoBehaviour
+{
+    enum Skills
+    {
+        shot, multiShot, summon
+    }
+    [SerializeField] private int hp;
+    [SerializeField] private float attackCd;
+    private bool isAttacking;
+    [SerializeField] private float multiShotAngle;
+    [SerializeField] private int summonCount;
+    [SerializeField] private float summonRange;
+    [SerializeField] private GameObject[] pattern;
+    private SpriteRenderer spr;
+    private Transform target;
+
+    private void Awake()
+    {
+        spr = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
+        target = GameManager.Singleton.player.transform;
+        StartCoroutine(Attack());
+    }
+
+    private void Update()
+    {
+        spr.flipX = target.position.x < transform.position.x;
+    }
+
+    IEnumerator Attack()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(attackCd);
+            int skill = Random.Range(0, pattern.Length+1);
+        
+            switch (skill)
+            {
+                case (int)Skills.shot:
+                    Vector3 dir = target.position - transform.position;
+                    float angle = MathF.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                    Quaternion quat = Quaternion.AngleAxis(angle, Vector3.forward);
+                    Instantiate(pattern[(int)Skills.shot], transform.position, quat);
+                    break;
+                case (int)Skills.multiShot:
+                    for (float i=0; i <= 360; i += 360 / multiShotAngle)
+                    {
+                        Quaternion quaternion = Quaternion.AngleAxis(i, Vector3.forward);
+                        Instantiate(pattern[(int)Skills.shot], transform.position, quaternion);
+                    }
+                    break;
+                case (int)Skills.summon:
+                    for (int i = 0; i < summonCount; i++)
+                    {
+                        Enemy enemy = PoolManager.instance.enemyPool.Get();
+                        enemy.transform.position = transform.position + Random.insideUnitSphere * summonRange;
+                    }
+                    break;
+            }
+        }
+    }
+}
