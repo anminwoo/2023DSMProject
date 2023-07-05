@@ -6,6 +6,7 @@ using Scripts_ojy;
 using Scripts_ojy.Player;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class Enemy : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private uint hp;
     [SerializeField] private float speed;
     Transform target;
+    private IObjectPool<Enemy> enemyPool;
     private CircleCollider2D searchCol;
     private SpriteRenderer spr;
     private Vector3 dir;
@@ -28,6 +30,11 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rb;
     private static readonly int HasTarget = Animator.StringToHash("hasTarget");
 
+    public void SetPool(IObjectPool<Enemy> pool)
+    {
+        enemyPool = pool;
+    }
+    
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -57,7 +64,7 @@ public class Enemy : MonoBehaviour
         hp -= damage;
         if (hp < 0)
         {
-            gameObject.SetActive(false);
+            enemyPool.Release(this);
         }
     }
     
