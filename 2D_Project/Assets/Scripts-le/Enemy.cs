@@ -79,17 +79,13 @@ public class Enemy : MonoBehaviour
             Quaternion quat = Quaternion.AngleAxis(angle, Vector3.forward);
             Instantiate(projectile, transform.position, quat);
         }
-        else
-        {
-            player.GetDamage(damage);
-        }
         yield return new WaitForSeconds(attackCd);
         animator.SetBool("isAttacking", false);
     }
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player") && !animator.GetBool("isAttacking") )
+        if (other.gameObject.CompareTag("Player") && !animator.GetBool("isAttacking") && data[type].attackType == AttackType.Melee)
         {
             StartCoroutine(Attack(other.gameObject.GetComponent<PlayerController>()));
         }

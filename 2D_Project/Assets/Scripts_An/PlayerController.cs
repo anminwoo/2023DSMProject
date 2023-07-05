@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour, IDamagable
     public void GetDamage(int damage)
     {
         currentHp -= damage;
+        AudioManager.instance.playSfx(AudioManager.Sfx.PlaDam);
         if (currentHp <= 0)
         {
             Die();
@@ -59,6 +60,7 @@ public class PlayerController : MonoBehaviour, IDamagable
     public void Die()
     {
         _anim.SetTrigger("Die");
+        AudioManager.instance.playSfx(AudioManager.Sfx.Plath);
     }
 
     public void ChangeStatus(ItemData itemData)
