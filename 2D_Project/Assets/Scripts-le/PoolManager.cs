@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
+using Random = UnityEngine.Random;
 
 public class PoolManager : MonoBehaviour
 {
     public static PoolManager instance;
     [SerializeField] Enemy enemyPrefab;
+    [SerializeField] private Transform[] spawnPos;
     [SerializeField] private int maxPoolSize;
     private IObjectPool<Enemy> enemyPool;
 
@@ -27,6 +29,8 @@ public class PoolManager : MonoBehaviour
     private Enemy SpawnEnemy()
     {
         Enemy enemy = Instantiate(enemyPrefab, transform);
+        int ranPos = Random.Range(0, spawnPos.Length);
+        enemy.transform.position = spawnPos[ranPos].position;
         enemy.SetPool(enemyPool);
         return enemy;
     }
