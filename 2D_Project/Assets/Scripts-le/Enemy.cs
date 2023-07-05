@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
         Melee, 
         Range
     }
-    [SerializeField] private EnemyData[] data;
+    public EnemyData[] data;
     [SerializeField] private Animator animator;
     public int damage;
     [SerializeField] private GameObject projectile;
