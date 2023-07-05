@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Item.Core
+namespace Scripts_Baek.Item.Core
 {
     public enum ItemGrade
     {

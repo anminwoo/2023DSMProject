@@ -1,32 +1,35 @@
-﻿using System;
-using Scripts_ojy;
+﻿using Scripts_ojy;
+using Scripts_ojy.Player;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+namespace Scripts_Baek
 {
-    private static GameManager _singleton;
-
-    public static GameManager Singleton
+    public class GameManager : MonoBehaviour
     {
-        get => _singleton;
-        private set
+        private static GameManager _singleton;
+
+        public static GameManager Singleton
         {
-            if (_singleton == null)
+            get => _singleton;
+            private set
             {
-                _singleton = value;
-            }
-            else if (_singleton	!= value)
-            {
-                Debug.Log("경고 : 이미 게임메니저가 존재합니다!");
-                Destroy(value.gameObject);
+                if (_singleton == null)
+                {
+                    _singleton = value;
+                }
+                else if (_singleton	!= value)
+                {
+                    Debug.Log("경고 : 이미 게임메니저가 존재합니다!");
+                    Destroy(value.gameObject);
+                }
             }
         }
-    }
 
-    private void Awake()
-    {
-        Singleton = this;
-    }
+        private void Awake()
+        {
+            Singleton = this;
+        }
 
-    public Player player;
+        public Player player;
+    }
 }

@@ -1,4 +1,4 @@
-﻿namespace Item.Core
+﻿namespace Scripts_Baek.Item.Core
 {
     public abstract class Active : Item
     {

@@ -1,7 +1,24 @@
-﻿namespace Item.Core
+﻿using System;
+using UnityEngine;
+
+namespace Scripts_Baek.Item.Core
 {
-    public abstract class Passive : Item
+    [Flags]
+    public enum PassiveType
     {
+        Nothing,
+        StatusChange = 1 << 0,
+        AttackChange = 1 << 1,
+        AddPet = 1 << 2
+    }
+    public abstract class Passive : global::Scripts_Baek.Item.Core.Item
+    {
+        [SerializeField] protected PassiveType type;
+
+        [SerializeField] protected ChangeStatus change;
+        public PassiveType Type => type;
+        public ChangeStatus Change => change;
+        
         public virtual void OnGet()
         {
             GameManager.Singleton.player.onMove.AddListener(OnMove);

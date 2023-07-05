@@ -1,51 +1,50 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Item.Core;
-using Unity.Mathematics;
+using Scripts_Baek.Item.Core;
 using UnityEngine;
 
-public class Chest : MonoBehaviour, IInteractable
+namespace Scripts_An
 {
-    [SerializeField] private ChestData chestData;
-    [SerializeField] private bool isOpen;
-
-    private Item.Core.Item item;
-    private SpriteRenderer spriteRenderer;
-    private Animator animator;
-    private AnimationClip clip;
-
-    private void Start()
+    public class Chest : MonoBehaviour, IInteractable
     {
-        item = chestData.spawnableItems.GetRandom();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
-        spriteRenderer.sprite = chestData.chestSprite;
-    }
+        [SerializeField] private ChestData chestData;
+        [SerializeField] private bool isOpen;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
+        private Item _item;
+        private SpriteRenderer _spriteRenderer;
+        private Animator _animator;
+        private AnimationClip _clip;
+
+        private void Start()
         {
-            Interact();
+            _item = chestData.spawnableItems.GetRandom();
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+            _animator = GetComponent<Animator>();
+            _spriteRenderer.sprite = chestData.chestSprite;
         }
-    }
 
-    public void Interact()
-    {
-        if (isOpen)
+        private void Update()
         {
-            return;
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Interact();
+            }
         }
-        Debug.Log("open");
-        Open();
-    }
 
-    public void Open()
-    {
-        isOpen = true;
-        animator.SetTrigger("open");
-        // Item.Core.Item spawnItem = Instantiate(item, transform.position, quaternion.identity);
-        // spawnItem.Initialize();
+        public void Interact()
+        {
+            if (isOpen)
+            {
+                return;
+            }
+            Debug.Log("open");
+            Open();
+        }
+
+        public void Open()
+        {
+            isOpen = true;
+            _animator.SetTrigger("open");
+            // Item.Core.Item spawnItem = Instantiate(item, transform.position, quaternion.identity);
+            // spawnItem.Initialize();
+        }
     }
 }

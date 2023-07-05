@@ -1,23 +1,23 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Item.Core
+namespace Scripts_Baek.Item.Core
 {
+    [RequireComponent(typeof(SpriteRenderer))]
     public class Item : MonoBehaviour
     {
         [SerializeField] private ItemInfo itemInfo;
         public ItemInfo ItemInfo => itemInfo;
 
-        private SpriteRenderer spriteRenderer;
+        private SpriteRenderer _spriteRenderer;
 
         private void Start()
         {
-            spriteRenderer = GetComponent<SpriteRenderer>();
+            _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         public void Initialize()
         {
-            spriteRenderer.sprite = itemInfo.ItemIcon;
+            _spriteRenderer.sprite = itemInfo.ItemIcon;
         }
     }
 }

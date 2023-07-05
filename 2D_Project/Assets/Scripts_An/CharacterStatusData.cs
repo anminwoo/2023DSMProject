@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Item.Core;
+using Scripts_Baek.Item.Core;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "CharacterStatusData", fileName = "NewCharacterStatus")]

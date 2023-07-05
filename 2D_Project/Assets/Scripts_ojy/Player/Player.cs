@@ -1,9 +1,9 @@
-using Item.Core;
+using Scripts_Baek.Item.Core;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-namespace Scripts_ojy
+namespace Scripts_ojy.Player
 {
     public class Player : MonoBehaviour
     {

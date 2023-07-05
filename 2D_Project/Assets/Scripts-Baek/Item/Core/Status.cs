@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Item.Core
+namespace Scripts_Baek.Item.Core
 {
     [Serializable]
     public struct Status

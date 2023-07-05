@@ -1,7 +1,7 @@
-﻿using Item.Core;
+﻿using Scripts_Baek.Item.Core;
 using UnityEngine;
 
-namespace Item.Passives
+namespace Scripts_Baek.Item.Passives
 {
     public class TestItem : Passive
     {
