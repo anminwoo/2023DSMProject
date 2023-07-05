@@ -44,7 +44,7 @@ namespace Scripts_Baek.Item.Core
             GameManager.Singleton.player.onFire.AddListener(OnFire);
             GameManager.Singleton.player.onDamage.AddListener(OnDamage);
             GameManager.Singleton.player.onParry.AddListener(OnParry);
-            AudioManager.instance.playSfx(AudioManager.Sfx.Chepen);
+            AudioManager.instance.playSfx(AudioManager.Sfx.ItemGet);
         }
 
         public abstract void OnMove();
