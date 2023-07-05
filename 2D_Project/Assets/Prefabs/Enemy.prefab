@@ -134,7 +134,6 @@ MonoBehaviour:
   damage: 0
   projectile: {fileID: 0}
   attackCd: 0
-  isAttacking: 0
   hp: 0
   speed: 0
   type: 0

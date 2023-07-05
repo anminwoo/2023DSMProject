@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float speed;
     Transform target;
     private CircleCollider2D searchCol;
+    private SpriteRenderer spr;
     private Vector3 dir;
     public int type;
 
@@ -31,6 +32,7 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         searchCol = GetComponent<CircleCollider2D>();
+        spr = GetComponent<SpriteRenderer>();
     }
 
     void Start()
@@ -44,6 +46,7 @@ public class Enemy : MonoBehaviour
         if (animator.GetBool(HasTarget))
         {
             rb.velocity = nextVec.normalized * speed;
+            spr.flipX = target.position.x < transform.position.x;
         }
     }
 
@@ -51,6 +54,10 @@ public class Enemy : MonoBehaviour
     {
         animator.SetTrigger("Damaged");
         hp -= damage;
+        if (hp < 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
     
     public IEnumerator Attack(Player player, EnemyData data)
