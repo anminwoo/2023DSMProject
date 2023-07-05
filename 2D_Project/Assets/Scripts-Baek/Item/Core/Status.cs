@@ -6,7 +6,6 @@ namespace Item.Core
     public struct Status
     {
         public uint maxHp;
-        public uint currentHp;
         public uint shield;
         public uint damage;
         public float speed;
