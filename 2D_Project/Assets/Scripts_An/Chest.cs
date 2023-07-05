@@ -37,6 +37,7 @@ namespace Scripts_An
         {
             isOpen = true;
             _animator.SetTrigger("Open");
+            AudioManager.instance.playSfx(AudioManager.Sfx.Chepen);
             ItemSpawnSystem.Singleton.SpawnItem(item, transform);
             spriteRenderer.DOFade(0, destroyTime).OnComplete(() => Destroy(gameObject));
         }

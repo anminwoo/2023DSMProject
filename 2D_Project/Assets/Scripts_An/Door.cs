@@ -11,6 +11,7 @@ public class Door : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             other.transform.position = movePos.position;
+            AudioManager.instance.playSfx(AudioManager.Sfx.Doorpen);
         }
     }
 }
