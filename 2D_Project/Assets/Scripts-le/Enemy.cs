@@ -66,8 +66,13 @@ public class Enemy : MonoBehaviour
         hp -= damage;
         if (hp <= 0)
         {
-            enemyPool.Release(this);
+            animator.SetTrigger("Die");
         }
+    }
+
+    public void Die()
+    {
+        enemyPool.Release(this);
     }
     
     public IEnumerator Attack(Player player)
