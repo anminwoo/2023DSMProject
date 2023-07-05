@@ -23,7 +23,6 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer spr;
     private Vector3 dir;
     public int type;
-
     private Rigidbody2D rb;
     private static readonly int HasTarget = Animator.StringToHash("hasTarget");
 
@@ -60,11 +59,11 @@ public class Enemy : MonoBehaviour
         }
     }
     
-    public IEnumerator Attack(Player player, EnemyData data)
+    public IEnumerator Attack(Player player)
     {
         animator.SetTrigger("Attack");
         animator.SetBool("isAttacking", true);
-        if (data.attackType == AttackType.range)
+        if (data[type].attackType == AttackType.range)
         {
             Vector3 dir = target.position - transform.position;
             float angle = MathF.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -81,17 +80,25 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player") && !animator.GetBool("isAttacking"))
+        if (other.gameObject.CompareTag("Player") && !animator.GetBool("isAttacking") )
         {
-            StartCoroutine(Attack(other.gameObject.GetComponent<Player>(), data[type]));
+            StartCoroutine(Attack(other.gameObject.GetComponent<Player>()));
         }
     }
-
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             animator.SetBool(HasTarget, true);
+        }
+    }
+    
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("Player") && data[type].attackType == AttackType.range && !animator.GetBool("isAttacking"))
+        {
+            StartCoroutine(Attack(other.gameObject.GetComponent<Player>()));
         }
     }
 
