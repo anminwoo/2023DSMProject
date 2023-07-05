@@ -13,9 +13,9 @@ public class FInalBoss : MonoBehaviour
     [SerializeField] private int hp;
     [SerializeField] private float attackCd;
     private bool isAttacking;
+    [SerializeField] private int shotCount;
     [SerializeField] private float multiShotCount;
     [SerializeField] private int summonCount;
-    [SerializeField] private float enemyDieTime;
     [SerializeField] private float summonRange;
     [SerializeField] private GameObject[] pattern;
     private Animator anim;
@@ -39,10 +39,14 @@ public class FInalBoss : MonoBehaviour
         spr.flipX = target.position.x < transform.position.x;
     }
 
-    IEnumerator killEnemy(Enemy enemy)
+    public void Damaged(int dmg)
     {
-        yield return new WaitForSeconds(enemyDieTime);
-        enemy.Damaged(999);
+        anim.SetTrigger("damaged");
+        hp -= dmg;
+        if (hp <= 0)
+        {
+            anim.SetTrigger("die");
+        }
     }
 
     IEnumerator Attack()
@@ -50,16 +54,22 @@ public class FInalBoss : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(attackCd);
-            int skill = Random.Range(0, pattern.Length+1);
+            anim.SetTrigger("attack");
+            int skill = Random.Range(0, pattern.Length+2);
         
             switch (skill)
             {
                 case (int)Skills.shot:
-                    Vector3 dir = target.position - transform.position;
-                    float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-                    Quaternion quat = Quaternion.AngleAxis(angle, Vector3.forward);
-                    Instantiate(pattern[(int)Skills.shot], transform.position, quat);
+                    for (float i=0; i <= shotCount; i++)
+                    {
+                        Vector3 dir = target.position - transform.position;
+                        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                        Quaternion quat = Quaternion.AngleAxis(angle, Vector3.forward);
+                        Instantiate(pattern[(int)Skills.shot], transform.position, quat);
+                        yield return new WaitForSeconds(0.5f);
+                    }
                     break;
+                
                 case (int)Skills.multiShot:
                     for (float i=0; i <= 360; i += 360 / multiShotCount)
                     {
@@ -67,11 +77,14 @@ public class FInalBoss : MonoBehaviour
                         Instantiate(pattern[(int)Skills.shot], transform.position, quaternion);
                     }
                     break;
+                
                 case (int)Skills.targetShot:
                     for (int i = 0; i < summonCount; i++)
                     {
-                        Quaternion quaternion = Quaternion.AngleAxis(i, Vector3.forward);
-                        Instantiate(pattern[(int)Skills.shot], transform.position + Random.insideUnitSphere * summonRange, quaternion);
+                        Vector3 dir = target.position - transform.position;
+                        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                        Quaternion quat = Quaternion.AngleAxis(angle, Vector3.forward);
+                        Instantiate(pattern[(int)Skills.shot], transform.position + Random.insideUnitSphere * summonRange, quat);
                     }
                     break;
             }

@@ -39,6 +39,16 @@ public class GraveKeeper : MonoBehaviour
     {
         spr.flipX = target.position.x < transform.position.x;
     }
+    
+    public void Damaged(int dmg)
+    {
+        anim.SetTrigger("damaged");
+        hp -= dmg;
+        if (hp <= 0)
+        {
+            anim.SetTrigger("die");
+        }
+    }
 
     IEnumerator killEnemy(Enemy enemy)
     {

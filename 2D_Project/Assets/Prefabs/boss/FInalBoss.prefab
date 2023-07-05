@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -1003202176, guid: e0e90d20b6805394ca992f26b7fa7f34, type: 3}
-  m_Color: {r: 0, g: 0.7887392, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.8, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -158,3 +158,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 790852e711bd7c84d9f680e1495ac65b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 0
+  attackCd: 3
+  shotCount: 3
+  multiShotCount: 15
+  summonCount: 5
+  summonRange: 3
+  pattern:
+  - {fileID: 2812561389658083557, guid: 0da74c8fc02526545a4a3dcecb8fc73e, type: 3}
