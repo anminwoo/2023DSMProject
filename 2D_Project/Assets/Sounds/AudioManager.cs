@@ -35,7 +35,8 @@ public class AudioManager : MonoBehaviour
         SpidDie, // 거미가 죽을 때
         Zomttack, // 좀비가 공겨할 때
         ZomDie, // 좀비가 죽을 때
-        BossAppear // 보스가 등장할 때
+        BossAppear, // 보스가 등장할 때
+        ItemGet // 아이템 먹을 때 
     };
     
     void Awake()
