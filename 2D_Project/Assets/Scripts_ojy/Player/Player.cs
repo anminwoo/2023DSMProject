@@ -23,6 +23,7 @@ namespace Scripts_ojy
         
         void Awake()
         {
+            Init(statusData.status);
             _rigid = GetComponent<Rigidbody2D>();
             _sr = GetComponent<SpriteRenderer>();
             _anim = GetComponent<Animator>();
@@ -67,5 +68,15 @@ namespace Scripts_ojy
         public UnityEvent onFire;
         public UnityEvent onDamage;
         public UnityEvent onParry;
+
+        private void Init(Status status)
+        {
+            maxHp = status.maxHp;
+            currentHp = maxHp;
+            shield = status.shield;
+            damage = status.damage;
+            speed = status.speed;
+            defensive = status.defensive;
+        }
     }
 }
