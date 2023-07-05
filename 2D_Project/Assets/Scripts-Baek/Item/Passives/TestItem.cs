@@ -20,14 +20,14 @@ namespace Scripts_Baek.Item.Passives
             Debug.Log("디버그 : 플레이어 공격");
         }
 
-        public override void OnDamage()
+        public override void OnDamage(Enemy e)
         {
-            Debug.Log($"디버그 : 플레이어 피해 입음({GameManager.Singleton.player.finalDamage})");
+            Debug.Log($"디버그 : 플레이어 {nameof(e)}에게 피해 입음({GameManager.Singleton.player.finalDamage})");
         }
 
-        public override void OnParry()
+        public override void OnParry(Enemy e)
         {
-            Debug.Log("디버그 : 플레이어 공격 쳐냄");
+            Debug.Log($"디버그 : 플레이어 {nameof(e)}의 공격 쳐냄");
         }
     }
 }

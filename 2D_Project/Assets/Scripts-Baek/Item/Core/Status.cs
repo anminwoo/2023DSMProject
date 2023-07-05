@@ -10,6 +10,7 @@ namespace Scripts_Baek.Item.Core
         public int damage;
         public float speed;
         public int defensive;
+        public float invincibleTime;
     }
 
     [Serializable]
@@ -20,5 +21,6 @@ namespace Scripts_Baek.Item.Core
         public int damage;
         public float speed;
         public int defensive;
+        public float invincibleTime;
     }
 }

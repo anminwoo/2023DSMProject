@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d79278ceb494554aab850d017468858, type: 3}
-  m_Name: new ItemInfo
+  m_Name: TestItem
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 0}
   itemGrade: 0
-  itemName: 
-  itemDescription: 
+  itemName: "\uD14C\uC2A4\uD2B8 \uC544\uC774\uD15C"
+  itemDescription: "\uD14C\uC2A4\uD2B8\uC6A9 \uC544\uC774\uD15C\uC774\uB2E4."
   itemCost: 0
-  itemSpawn: 0

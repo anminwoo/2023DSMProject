@@ -288,6 +288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 161780460}
   - component: {fileID: 161780459}
+  - component: {fileID: 161780461}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -308,6 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1477430950}
+  currentAttackType: 0
 --- !u!4 &161780460
 Transform:
   m_ObjectHideFlags: 0
@@ -323,6 +325,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &161780461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161780458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a512d6cd54f2c544eaf3554d2d4d2df9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 5105769326592033446, guid: a72f2fc58d57180429c6cc88de6a3ea9,
+    type: 3}
+  defaultCap: 0
+  maxPoolSize: 100
 --- !u!1 &206083270
 GameObject:
   m_ObjectHideFlags: 0
@@ -8260,12 +8278,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputVector: {x: 0, y: 0}
   statusData: {fileID: 11400000, guid: f7bb98eb3adcf8840b3b6e48b0f7a5cb, type: 2}
-  maxHp: 0
+  currentStatus:
+    maxHp: 0
+    shield: 0
+    damage: 0
+    speed: 0
+    defensive: 0
+    invincibleTime: 0
   currentHp: 0
-  shield: 0
-  damage: 0
-  speed: 5
-  defensive: 0
+  currentActive: {fileID: 0}
+  finalDamage: 0
   onMove:
     m_PersistentCalls:
       m_Calls: []
@@ -8276,6 +8298,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onParry:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
     m_PersistentCalls:
       m_Calls: []
 --- !u!70 &1477430951
