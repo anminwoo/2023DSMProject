@@ -17,6 +17,7 @@ MonoBehaviour:
   damage: 0
   speed: 0
   searchRange: 0
+  attackType: 1
   projectile: {fileID: 2812561389658083557, guid: 58eb9181d5a57e74db66d64ea40582a9,
     type: 3}
   controller: {fileID: 22100000, guid: 379add987236427449e0921923bde6ea, type: 2}
