@@ -13,6 +13,7 @@ namespace Scripts_ojy.Player
 
         public Status currentStatus;
         public int currentHp;
+        public Active currentActive;
         private Rigidbody2D _rigid;
         private SpriteRenderer _sr;
         private Animator _anim;
@@ -52,17 +53,17 @@ namespace Scripts_ojy.Player
         }
 
         public int finalDamage = 0;
-        public void OnDamage(int damage)
+        public void OnDamage(int damage, Enemy e)
         {
             finalDamage = damage;
             finalDamage -= currentStatus.defensive;
             currentHp -= finalDamage;
-            onDamage.Invoke();
+            onDamage.Invoke(e);
         }
 
-        public void OnParry()
+        public void OnParry(Enemy e)
         {
-            onParry.Invoke();
+            onParry.Invoke(e);
         }
 
         public void OnDeath()
@@ -72,8 +73,8 @@ namespace Scripts_ojy.Player
         
         public UnityEvent onMove;
         public UnityEvent onFire;
-        public UnityEvent onDamage;
-        public UnityEvent onParry;
+        public UnityEvent<Enemy> onDamage;
+        public UnityEvent<Enemy> onParry;
         public UnityEvent onDeath;
 
         public void Init(Status status)
@@ -84,6 +85,7 @@ namespace Scripts_ojy.Player
             currentStatus.damage = status.damage;
             currentStatus.speed = status.speed;
             currentStatus.defensive = status.defensive;
+            currentStatus.invincibleTime = status.invincibleTime;
         }
     }
 }

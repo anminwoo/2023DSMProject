@@ -23,9 +23,15 @@ namespace Scripts_Baek.Item.Core
         [SerializeField] protected ChangeStatus change;
         public PassiveType Type => type;
         public ChangeStatus Change => change;
-        
-        
-        
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.transform.CompareTag("Player"))
+            {
+                GameManager.Singleton.AddItem(this);
+            }
+        }
+
         public virtual void OnGet()
         {
             GameManager.Singleton.player.onMove.AddListener(OnMove);
@@ -38,8 +44,8 @@ namespace Scripts_Baek.Item.Core
 
         public abstract void OnFire();
 
-        public abstract void OnDamage();
+        public abstract void OnDamage(Enemy e);
 
-        public abstract void OnParry();
+        public abstract void OnParry(Enemy e);
     }
 }
