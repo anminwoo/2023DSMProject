@@ -5,9 +5,9 @@ using UnityEngine;
 public class EnemyData : ScriptableObject
 {
     [Header("Stat")]
-    public uint maxHp;
+    public int maxHp;
     public float attackCd;
-    public uint damage;
+    public int damage;
     public float speed;
     public float searchRange;
     public Enemy.AttackType attackType;

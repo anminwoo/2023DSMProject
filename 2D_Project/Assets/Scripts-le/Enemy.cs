@@ -12,14 +12,15 @@ public class Enemy : MonoBehaviour
 {
     public enum AttackType
     {
-        melee, range
+        Melee, 
+        Range
     }
     [SerializeField] private EnemyData[] data;
     [SerializeField] private Animator animator;
-    public uint damage;
+    public int damage;
     [SerializeField] private GameObject projectile;
     [SerializeField] private float attackCd;
-    [SerializeField] private uint hp;
+    [SerializeField] private int hp;
     [SerializeField] private float speed;
     Transform target;
     private IObjectPool<Enemy> enemyPool;
@@ -58,11 +59,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void Damaged(uint damage)
+    public void Damaged(int damage)
     {
         animator.SetTrigger("Damaged");
-        hp -= damage;
-        if (hp < 0)
+        if (this.damage > 0)
+        {
+            hp -= damage;
+        }
+        if (hp <= 0)
         {
             enemyPool.Release(this);
         }
@@ -72,7 +76,7 @@ public class Enemy : MonoBehaviour
     {
         animator.SetTrigger("Attack");
         animator.SetBool("isAttacking", true);
-        if (data[type].attackType == AttackType.range)
+        if (data[type].attackType == AttackType.Range)
         {
             Vector3 dir = target.position - transform.position;
             float angle = MathF.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -105,7 +109,7 @@ public class Enemy : MonoBehaviour
     
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && data[type].attackType == AttackType.range && !animator.GetBool("isAttacking"))
+        if (other.CompareTag("Player") && data[type].attackType == AttackType.Range && !animator.GetBool("isAttacking"))
         {
             StartCoroutine(Attack(other.gameObject.GetComponent<Player>()));
         }

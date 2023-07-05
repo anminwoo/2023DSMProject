@@ -1,3 +1,4 @@
+using Scripts_Baek;
 using Scripts_Baek.Item.Core;
 using UnityEngine;
 using UnityEngine.Events;
@@ -10,13 +11,8 @@ namespace Scripts_ojy.Player
         [SerializeField] private Vector2 inputVector;
         public CharacterStatusData statusData;
 
-        public uint maxHp;
-        public uint currentHp;
-        public uint shield;
-        public uint damage;
-        public float speed;
-        public uint defensive;
-        
+        public Status currentStatus;
+        public int currentHp;
         private Rigidbody2D _rigid;
         private SpriteRenderer _sr;
         private Animator _anim;
@@ -30,7 +26,7 @@ namespace Scripts_ojy.Player
         }
         void Update()
         {
-            Vector2 nextVector = inputVector.normalized * speed;
+            Vector2 nextVector = inputVector.normalized * currentStatus.speed;
             _rigid.velocity = nextVector;
         }
 
@@ -54,8 +50,13 @@ namespace Scripts_ojy.Player
             }
             
         }
-        public void OnDamage()
+
+        public int finalDamage = 0;
+        public void OnDamage(int damage)
         {
+            finalDamage = damage;
+            finalDamage -= currentStatus.defensive;
+            currentHp -= finalDamage;
             onDamage.Invoke();
         }
 
@@ -63,20 +64,26 @@ namespace Scripts_ojy.Player
         {
             onParry.Invoke();
         }
+
+        public void OnDeath()
+        {
+            onDeath.Invoke();
+        }
         
         public UnityEvent onMove;
         public UnityEvent onFire;
         public UnityEvent onDamage;
         public UnityEvent onParry;
+        public UnityEvent onDeath;
 
-        private void Init(Status status)
+        public void Init(Status status)
         {
-            maxHp = status.maxHp;
-            currentHp = maxHp;
-            shield = status.shield;
-            damage = status.damage;
-            speed = status.speed;
-            defensive = status.defensive;
+            currentStatus.maxHp = status.maxHp;
+            currentHp = currentStatus.maxHp;
+            currentStatus.shield = status.shield;
+            currentStatus.damage = status.damage;
+            currentStatus.speed = status.speed;
+            currentStatus.defensive = status.defensive;
         }
     }
 }
