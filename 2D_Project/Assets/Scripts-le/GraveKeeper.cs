@@ -14,8 +14,9 @@ public class GraveKeeper : MonoBehaviour
     [SerializeField] private int hp;
     [SerializeField] private float attackCd;
     private bool isAttacking;
-    [SerializeField] private float multiShotAngle;
+    [SerializeField] private float multiShotCount;
     [SerializeField] private int summonCount;
+    [SerializeField] private float enemyDieTime;
     [SerializeField] private float summonRange;
     [SerializeField] private GameObject[] pattern;
     private SpriteRenderer spr;
@@ -37,6 +38,12 @@ public class GraveKeeper : MonoBehaviour
         spr.flipX = target.position.x < transform.position.x;
     }
 
+    IEnumerator killEnemy(Enemy enemy)
+    {
+        yield return new WaitForSeconds(enemyDieTime);
+        enemy.Damaged(999);
+    }
+
     IEnumerator Attack()
     {
         while (true)
@@ -53,7 +60,7 @@ public class GraveKeeper : MonoBehaviour
                     Instantiate(pattern[(int)Skills.shot], transform.position, quat);
                     break;
                 case (int)Skills.multiShot:
-                    for (float i=0; i <= 360; i += 360 / multiShotAngle)
+                    for (float i=0; i <= 360; i += 360 / multiShotCount)
                     {
                         Quaternion quaternion = Quaternion.AngleAxis(i, Vector3.forward);
                         Instantiate(pattern[(int)Skills.shot], transform.position, quaternion);
@@ -64,6 +71,7 @@ public class GraveKeeper : MonoBehaviour
                     {
                         Enemy enemy = PoolManager.instance.enemyPool.Get();
                         enemy.transform.position = transform.position + Random.insideUnitSphere * summonRange;
+                        StartCoroutine(killEnemy(enemy));
                     }
                     break;
             }

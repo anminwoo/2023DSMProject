@@ -148,7 +148,6 @@ public class Enemy : MonoBehaviour
         animator.runtimeAnimatorController = d.controller;
         projectile = d.projectile;
         if(target == null) target = GameManager.Singleton.player.transform;
-        StartCoroutine(damaged());
     }
 
     // public void Init(EnemyData data)
