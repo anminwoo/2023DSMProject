@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+ <html xmlns:msxsl="urn:schemas-microsoft-com:xslt"><head><meta content="en-us" http-equiv="Content-Language" /><meta content="text/html; charset=utf-16" http-equiv="Content-Type" /><title _locID="ConversionReport0">
+          마이그레이션 보고서
+        </title><style> 
+                    /* Body style, for the entire document */
+                    body
+                    {
+                        background: #F3F3F4;
+                        color: #1E1E1F;
+                        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                        padding: 0;
+                        margin: 0;
+                    }
+
+                    /* Header1 style, used for the main title */
+                    h1
+                    {
+                        padding: 10px 0px 10px 10px;
+                        font-size: 21pt;
+                        background-color: #E2E2E2;
+                        border-bottom: 1px #C1C1C2 solid; 
+                        color: #201F20;
+                        margin: 0;
+                        font-weight: normal;
+                    }
+
+                    /* Header2 style, used for "Overview" and other sections */
+                    h2
+                    {
+                        font-size: 18pt;
+                        font-weight: normal;
+                        padding: 15px 0 5px 0;
+                        margin: 0;
+                    }
+
+                    /* Header3 style, used for sub-sections, such as project name */
+                    h3
+                    {
+                        font-weight: normal;
+                        font-size: 15pt;
+                        margin: 0;
+                        padding: 15px 0 5px 0;
+                        background-color: transparent;
+                    }
+
+                    /* Color all hyperlinks one color */
+                    a
+                    {
+                        color: #1382CE;
+                    }
+
+                    /* Table styles */ 
+                    table
+                    {
+                        border-spacing: 0 0;
+                        border-collapse: collapse;
+                        font-size: 10pt;
+                    }
+
+                    table th
+                    {
+                        background: #E7E7E8;
+                        text-align: left;
+                        text-decoration: none;
+                        font-weight: normal;
+                        padding: 3px 6px 3px 6px;
+                    }
+
+                    table td
+                    {
+                        vertical-align: top;
+                        padding: 3px 6px 5px 5px;
+                        margin: 0px;
+                        border: 1px solid #E7E7E8;
+                        background: #F7F7F8;
+                    }
+
+                    /* Local link is a style for hyperlinks that link to file:/// content, there are lots so color them as 'normal' text until the user mouse overs */
+                    .localLink
+                    {
+                        color: #1E1E1F;
+                        background: #EEEEED;
+                        text-decoration: none;
+                    }
+
+                    .localLink:hover
+                    {
+                        color: #1382CE;
+                        background: #FFFF99;
+                        text-decoration: none;
+                    }
+
+                    /* Center text, used in the over views cells that contain message level counts */ 
+                    .textCentered
+                    {
+                        text-align: center;
+                    }
+
+                    /* The message cells in message tables should take up all avaliable space */
+                    .messageCell
+                    {
+                        width: 100%;
+                    }
+
+                    /* Padding around the content after the h1 */ 
+                    #content 
+                    {
+	                    padding: 0px 12px 12px 12px; 
+                    }
+
+                    /* The overview table expands to width, with a max width of 97% */ 
+                    #overview table
+                    {
+                        width: auto;
+                        max-width: 75%; 
+                    }
+
+                    /* The messages tables are always 97% width */
+                    #messages table
+                    {
+                        width: 97%;
+                    }
+
+                    /* All Icons */
+                    .IconSuccessEncoded, .IconInfoEncoded, .IconWarningEncoded, .IconErrorEncoded
+                    {
+                        min-width:18px;
+                        min-height:18px; 
+                        background-repeat:no-repeat;
+                        background-position:center;
+                    }
+
+                    /* Success icon encoded */
+                    .IconSuccessEncoded
+                    {
+                        /* Note: Do not delete the comment below. It is used to verify the correctness of the encoded image resource below before the product is released */
+                        /* [---XsltValidateInternal-Base64EncodedImage:IconSuccess#Begin#background-image: url(data:image/png;base64,#Separator#);#End#] */
+                        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABcElEQVR4Xq2TsUsCURzHv15g8ZJcBWlyiYYgCIWcb9DFRRwMW5TA2c0/QEFwFkxxUQdxVlBwCYWOi6IhWgQhBLHJUCkhLr/BW8S7gvrAg+N+v8/v+x68Z8MGy+XSCyABQAXgBgHGALoASkIIDWSLeLBetdHryMjd5IxQPWT4rn1c/P7+xxp72Cs9m5SZ0Bq2vPnbPFafK2zDvmNHypdC0BPkLlQhxJsCAhQoZwdZU5mwxh720qGo8MzTxTTKZDPCx2HoVzp6lz0Q9tKhyx0kGs8Ny+TkWRKk8lCROwEduhyg9l/6lunOPSfmH3NUH6uQ0KHLAe7JYvJjevm+DAMGJHToKtigE+vwvIidxLamb8IBY9e+C5LiXREkfho3TSd06HJA13/oh6T51MTsfQbHrsMynQ5dDihFjiK8JJAU9AKIWTp76dCVN7HWHrajmUEGvyF9nkbAE6gLIS7kTUyuf2gscLoJrElZo/Mvj+nPz/kLTmfnEwP3tB0AAAAASUVORK5CYII=);
+                    }
+
+                    /* Information icon encoded */
+                    .IconInfoEncoded
+                    {
+                        /* Note: Do not delete the comment below. It is used to verify the correctness of the encoded image resource below before the product is released */
+                        /* [---XsltValidateInternal-Base64EncodedImage:IconInformation#Begin#background-image: url(data:image/png;base64,#Separator#);#End#] */
+                        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHElEQVR4Xs2TsUoDQRRF7wwoziokjZUKadInhdhukR9YP8DMX1hYW+QvdsXa/QHBbcXC7W0CamWTQnclFutceIQJwwaWNLlwm5k5d94M76mmaeCrrmsLYOocY12FcxZFUeozCqKqqgYA8uevv1H6VuPxcwlfk5N92KHBxfFeCSAxxswlYAW/Xr989x/mv9gkhtyMDhcAxgzRsp7flj8B/HF1RsMXq+NZMkopaHe7lbKxQUEIGbKsYNoGn969060hZBkQex/W8oRQwsQaW2o3Ago2SVcJUzAgY3N0lTCZZm+zPS8HB51gMmS1DEYyOz9acKO1D8JWTlafKIMxdhvlfdyT94Vv5h7P8Ky7nQzACmhvKq3zk3PjW9asz9D/1oigecsioooAAAAASUVORK5CYII=);
+                    }
+
+                    /* Warning icon encoded */
+                    .IconWarningEncoded
+                    {
+                        /* Note: Do not delete the comment below. It is used to verify the correctness of the encoded image resource below before the product is released */
+                        /* [---XsltValidateInternal-Base64EncodedImage:IconWarning#Begin#background-image: url(data:image/png;base64,#Separator#);#End#] */
+                        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAx0lEQVR4XpWSMQ7CMAxFf4xAyBMLCxMrO8dhaBcuwdCJS3RJBw7SA/QGTCxdWJgiQYWKXJWKIXHIlyw5lqr34tQgEOdcBsCOx5yZK3hCCKdYXneQkh4pEfqzLfu+wVDSyyzFoJjfz9NB+pAF+eizx2Vruts0k15mPgvS6GYvpVtQhB61IB/dk6AF6fS4Ben0uIX5odtFe8Q/eW1KvFeH4e8khT6+gm5B+t3juyDt7n0jpe+CANTd+oTUjN/U3yVaABnSUjFz/gFq44JaVSCXeQAAAABJRU5ErkJggg==);
+                    }
+
+                    /* Error icon encoded */
+                    .IconErrorEncoded
+                    {
+                        /* Note: Do not delete the comment below. It is used to verify the correctness of the encoded image resource below before the product is released */
+                        /* [---XsltValidateInternal-Base64EncodedImage:IconError#Begin#background-image: url(data:image/png;base64,#Separator#);#End#] */
+                        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABQElEQVR4XqWTvUoEQRCE6wYPZUA80AfwAQz23uCMjA7MDRQEIzPBVEyNTQUFIw00vcQTTMzuAh/AxEQQT8HF/3G/oGGnEUGuoNnd6qoZuqltyKEsyzVJq5I6rnUp6SjGeGhESikzzlc1eL7opfuVbrqbU1Zw9NCgtQMaZpY0eNnaaL2fHusvTK5vKu7sjSS1Y4y3QUA6K3e3Mau5UFDyMP7tYF9o8cAHZv68vipoIJg971PZIZ5HiwdvYGGvFVFHmGmZ2MxwmQYPXubPl9Up0tfoMQGetXd6mRbvhBw+boZ6WF7Mbv1+GsHRk0fQmPAH1GfmZirbCfDJ61tw3Px8/8pZsPAG4jlVhcPgZ7adwNWBB68lkRQWFiTgFlbnLY3DGGM7izIJIyT/jjIvEJw6fdJTc6krDzh6aMwMP9bvDH4ADSsa9uSWVJkAAAAASUVORK5CYII=);
+                    }
+                 </style><script type="text/javascript" language="javascript"> 
+          
+            // Startup 
+            // Hook up the the loaded event for the document/window, to linkify the document content
+            var startupFunction = function() { linkifyElement("messages"); };
+            
+            if(window.attachEvent)
+            {
+              window.attachEvent('onload', startupFunction);
+            }
+            else if (window.addEventListener) 
+            {
+              window.addEventListener('load', startupFunction, false);
+            }
+            else 
+            {
+              document.addEventListener('load', startupFunction, false);
+            } 
+            
+            // Toggles the visibility of table rows with the specified name 
+            function toggleTableRowsByName(name)
+            {
+               var allRows = document.getElementsByTagName('tr');
+               for (i=0; i < allRows.length; i++)
+               {
+                  var currentName = allRows[i].getAttribute('name');
+                  if(!!currentName && currentName.indexOf(name) == 0)
+                  {
+                      var isVisible = allRows[i].style.display == ''; 
+                      isVisible ? allRows[i].style.display = 'none' : allRows[i].style.display = '';
+                  }
+               }
+            }
+            
+            function scrollToFirstVisibleRow(name) 
+            {
+               var allRows = document.getElementsByTagName('tr');
+               for (i=0; i < allRows.length; i++)
+               {
+                  var currentName = allRows[i].getAttribute('name');
+                  var isVisible = allRows[i].style.display == ''; 
+                  if(!!currentName && currentName.indexOf(name) == 0 && isVisible)
+                  {
+                     allRows[i].scrollIntoView(true); 
+                     return true; 
+                  }
+               }
+               
+               return false;
+            }
+            
+            // Linkifies the specified text content, replaces candidate links with html links 
+            function linkify(text)
+            {
+                 if(!text || 0 === text.length)
+                 {
+                     return text; 
+                 }
+
+                 // Find http, https and ftp links and replace them with hyper links 
+                 var urlLink = /(http|https|ftp)\:\/\/[a-zA-Z0-9\-\.]+(:[a-zA-Z0-9]*)?\/?([a-zA-Z0-9\-\._\?\,\/\\\+&%\$#\=~;\{\}])*/gi;
+                 
+                 return text.replace(urlLink, '<a href="$&">$&</a>') ;
+            }
+            
+            // Linkifies the specified element by ID
+            function linkifyElement(id)
+            {
+                var element = document.getElementById(id);
+                if(!!element)
+                {
+                  element.innerHTML = linkify(element.innerHTML); 
+                }
+            }
+            
+            function ToggleMessageVisibility(projectName)
+            {
+              if(!projectName || 0 === projectName.length)
+              {
+                return; 
+              }
+              
+              toggleTableRowsByName("MessageRowClass" + projectName);
+              toggleTableRowsByName('MessageRowHeaderShow' + projectName);
+              toggleTableRowsByName('MessageRowHeaderHide' + projectName); 
+            }
+            
+            function ScrollToFirstVisibleMessage(projectName)
+            {
+              if(!projectName || 0 === projectName.length)
+              {
+                return; 
+              }
+              
+              // First try the 'Show messages' row
+              if(!scrollToFirstVisibleRow('MessageRowHeaderShow' + projectName))
+              {
+                // Failed to find a visible row for 'Show messages', try an actual message row 
+                scrollToFirstVisibleRow('MessageRowClass' + projectName); 
+              }
+            }
+           </script></head><body><h1 _locID="ConversionReport">
+          마이그레이션 보고서 - </h1><div id="content"><h2 _locID="OverviewTitle">개요</h2><div id="overview"><table><tr><th></th><th _locID="ProjectTableHeader">프로젝트</th><th _locID="PathTableHeader">경로</th><th _locID="ErrorsTableHeader">오류</th><th _locID="WarningsTableHeader">경고</th><th _locID="MessagesTableHeader">메시지</th></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#Assembly-CSharp">Assembly-CSharp</a></strong></td><td>Assembly-CSharp.csproj</td><td class="textCentered"><a href="#Assembly-CSharpError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#Assembly-CSharp-Editor-firstpass">Assembly-CSharp-Editor-firstpass</a></strong></td><td>Assembly-CSharp-Editor-firstpass.csproj</td><td class="textCentered"><a href="#Assembly-CSharp-Editor-firstpassError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#Assembly-CSharp-firstpass">Assembly-CSharp-firstpass</a></strong></td><td>Assembly-CSharp-firstpass.csproj</td><td class="textCentered"><a href="#Assembly-CSharp-firstpassError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#AstarPathfindingProject">AstarPathfindingProject</a></strong></td><td>AstarPathfindingProject.csproj</td><td class="textCentered"><a href="#AstarPathfindingProjectError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#AstarPathfindingProjectEditor">AstarPathfindingProjectEditor</a></strong></td><td>AstarPathfindingProjectEditor.csproj</td><td class="textCentered"><a href="#AstarPathfindingProjectEditorError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#Febucci.Attributes.Editor">Febucci.Attributes.Editor</a></strong></td><td>Febucci.Attributes.Editor.csproj</td><td class="textCentered"><a href="#Febucci.Attributes.EditorError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#Febucci.Attributes.Runtime">Febucci.Attributes.Runtime</a></strong></td><td>Febucci.Attributes.Runtime.csproj</td><td class="textCentered"><a href="#Febucci.Attributes.RuntimeError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#Febucci.TextAnimator.Demo.Runtime">Febucci.TextAnimator.Demo.Runtime</a></strong></td><td>Febucci.TextAnimator.Demo.Runtime.csproj</td><td class="textCentered"><a href="#Febucci.TextAnimator.Demo.RuntimeError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#Febucci.TextAnimator.Editor">Febucci.TextAnimator.Editor</a></strong></td><td>Febucci.TextAnimator.Editor.csproj</td><td class="textCentered"><a href="#Febucci.TextAnimator.EditorError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#Febucci.TextAnimator.Runtime">Febucci.TextAnimator.Runtime</a></strong></td><td>Febucci.TextAnimator.Runtime.csproj</td><td class="textCentered"><a href="#Febucci.TextAnimator.RuntimeError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#Febucci.TextAnimator.TMP.Runtime">Febucci.TextAnimator.TMP.Runtime</a></strong></td><td>Febucci.TextAnimator.TMP.Runtime.csproj</td><td class="textCentered"><a href="#Febucci.TextAnimator.TMP.RuntimeError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#MoreMountains.Feedbacks">MoreMountains.Feedbacks</a></strong></td><td>MoreMountains.Feedbacks.csproj</td><td class="textCentered"><a href="#MoreMountains.FeedbacksError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#MoreMountains.Feedbacks.Authorizations">MoreMountains.Feedbacks.Authorizations</a></strong></td><td>MoreMountains.Feedbacks.Authorizations.csproj</td><td class="textCentered"><a href="#MoreMountains.Feedbacks.AuthorizationsError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#MoreMountains.Feedbacks.Cinemachine">MoreMountains.Feedbacks.Cinemachine</a></strong></td><td>MoreMountains.Feedbacks.Cinemachine.csproj</td><td class="textCentered"><a href="#MoreMountains.Feedbacks.CinemachineError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#MoreMountains.Feedbacks.Editor">MoreMountains.Feedbacks.Editor</a></strong></td><td>MoreMountains.Feedbacks.Editor.csproj</td><td class="textCentered"><a href="#MoreMountains.Feedbacks.EditorError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#MoreMountains.Feedbacks.HDRP">MoreMountains.Feedbacks.HDRP</a></strong></td><td>MoreMountains.Feedbacks.HDRP.csproj</td><td class="textCentered"><a href="#MoreMountains.Feedbacks.HDRPError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#MoreMountains.Feedbacks.MMTools">MoreMountains.Feedbacks.MMTools</a></strong></td><td>MoreMountains.Feedbacks.MMTools.csproj</td><td class="textCentered"><a href="#MoreMountains.Feedbacks.MMToolsError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#MoreMountains.Feedbacks.NiceVibrations">MoreMountains.Feedbacks.NiceVibrations</a></strong></td><td>MoreMountains.Feedbacks.NiceVibrations.csproj</td><td class="textCentered"><a href="#MoreMountains.Feedbacks.NiceVibrationsError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#MoreMountains.Feedbacks.PostProcessing">MoreMountains.Feedbacks.PostProcessing</a></strong></td><td>MoreMountains.Feedbacks.PostProcessing.csproj</td><td class="textCentered"><a href="#MoreMountains.Feedbacks.PostProcessingError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#MoreMountains.Feedbacks.TextMeshPro">MoreMountains.Feedbacks.TextMeshPro</a></strong></td><td>MoreMountains.Feedbacks.TextMeshPro.csproj</td><td class="textCentered"><a href="#MoreMountains.Feedbacks.TextMeshProError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#MoreMountains.Feedbacks.URP">MoreMountains.Feedbacks.URP</a></strong></td><td>MoreMountains.Feedbacks.URP.csproj</td><td class="textCentered"><a href="#MoreMountains.Feedbacks.URPError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#MoreMountains.Interface">MoreMountains.Interface</a></strong></td><td>MoreMountains.Interface.csproj</td><td class="textCentered"><a href="#MoreMountains.InterfaceError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#MoreMountains.Interface.Editor">MoreMountains.Interface.Editor</a></strong></td><td>MoreMountains.Interface.Editor.csproj</td><td class="textCentered"><a href="#MoreMountains.Interface.EditorError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#MoreMountains.InventoryEngine">MoreMountains.InventoryEngine</a></strong></td><td>MoreMountains.InventoryEngine.csproj</td><td class="textCentered"><a href="#MoreMountains.InventoryEngineError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#MoreMountains.InventoryEngine.Editor">MoreMountains.InventoryEngine.Editor</a></strong></td><td>MoreMountains.InventoryEngine.Editor.csproj</td><td class="textCentered"><a href="#MoreMountains.InventoryEngine.EditorError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#MoreMountains.Tools">MoreMountains.Tools</a></strong></td><td>MoreMountains.Tools.csproj</td><td class="textCentered"><a href="#MoreMountains.ToolsError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#MoreMountains.Tools.Editor">MoreMountains.Tools.Editor</a></strong></td><td>MoreMountains.Tools.Editor.csproj</td><td class="textCentered"><a href="#MoreMountains.Tools.EditorError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#MoreMountains.TopDownEngine">MoreMountains.TopDownEngine</a></strong></td><td>MoreMountains.TopDownEngine.csproj</td><td class="textCentered"><a href="#MoreMountains.TopDownEngineError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#MoreMountains.TopDownEngine.Editor">MoreMountains.TopDownEngine.Editor</a></strong></td><td>MoreMountains.TopDownEngine.Editor.csproj</td><td class="textCentered"><a href="#MoreMountains.TopDownEngine.EditorError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#MoreMountains.TopDownEngine.InputSystem">MoreMountains.TopDownEngine.InputSystem</a></strong></td><td>MoreMountains.TopDownEngine.InputSystem.csproj</td><td class="textCentered"><a href="#MoreMountains.TopDownEngine.InputSystemError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#NavMeshComponents">NavMeshComponents</a></strong></td><td>NavMeshComponents.csproj</td><td class="textCentered"><a href="#NavMeshComponentsError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#NavMeshComponentsEditor">NavMeshComponentsEditor</a></strong></td><td>NavMeshComponentsEditor.csproj</td><td class="textCentered"><a href="#NavMeshComponentsEditorError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#PackageToolsEditor">PackageToolsEditor</a></strong></td><td>PackageToolsEditor.csproj</td><td class="textCentered"><a href="#PackageToolsEditorError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconSuccessEncoded" /><td><strong><a href="#Solution"><span _locID="OverviewSolutionSpan">솔루션</span></a></strong></td><td>2D_Project.sln</td><td class="textCentered"><a>0</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#" onclick="ScrollToFirstVisibleMessage('Solution'); return false;">1</a></td></tr></table></div><h2 _locID="SolutionAndProjectsTitle">솔루션 및 프로젝트</h2><div id="messages"><a name="Assembly-CSharp" /><h3>Assembly-CSharp</h3><table><tr id="Assembly-CSharpHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassAssembly-CSharp"><td class="IconErrorEncoded"><a name="Assembly-CSharpError" /></td><td class="messageCell"><strong>Assembly-CSharp.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="Assembly-CSharp-Editor-firstpass" /><h3>Assembly-CSharp-Editor-firstpass</h3><table><tr id="Assembly-CSharp-Editor-firstpassHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassAssembly-CSharp-Editor-firstpass"><td class="IconErrorEncoded"><a name="Assembly-CSharp-Editor-firstpassError" /></td><td class="messageCell"><strong>Assembly-CSharp-Editor-firstpass.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="Assembly-CSharp-firstpass" /><h3>Assembly-CSharp-firstpass</h3><table><tr id="Assembly-CSharp-firstpassHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassAssembly-CSharp-firstpass"><td class="IconErrorEncoded"><a name="Assembly-CSharp-firstpassError" /></td><td class="messageCell"><strong>Assembly-CSharp-firstpass.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="AstarPathfindingProject" /><h3>AstarPathfindingProject</h3><table><tr id="AstarPathfindingProjectHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassAstarPathfindingProject"><td class="IconErrorEncoded"><a name="AstarPathfindingProjectError" /></td><td class="messageCell"><strong>AstarPathfindingProject.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="AstarPathfindingProjectEditor" /><h3>AstarPathfindingProjectEditor</h3><table><tr id="AstarPathfindingProjectEditorHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassAstarPathfindingProjectEditor"><td class="IconErrorEncoded"><a name="AstarPathfindingProjectEditorError" /></td><td class="messageCell"><strong>AstarPathfindingProjectEditor.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="Febucci.Attributes.Editor" /><h3>Febucci.Attributes.Editor</h3><table><tr id="Febucci.Attributes.EditorHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassFebucci.Attributes.Editor"><td class="IconErrorEncoded"><a name="Febucci.Attributes.EditorError" /></td><td class="messageCell"><strong>Febucci.Attributes.Editor.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="Febucci.Attributes.Runtime" /><h3>Febucci.Attributes.Runtime</h3><table><tr id="Febucci.Attributes.RuntimeHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassFebucci.Attributes.Runtime"><td class="IconErrorEncoded"><a name="Febucci.Attributes.RuntimeError" /></td><td class="messageCell"><strong>Febucci.Attributes.Runtime.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="Febucci.TextAnimator.Demo.Runtime" /><h3>Febucci.TextAnimator.Demo.Runtime</h3><table><tr id="Febucci.TextAnimator.Demo.RuntimeHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassFebucci.TextAnimator.Demo.Runtime"><td class="IconErrorEncoded"><a name="Febucci.TextAnimator.Demo.RuntimeError" /></td><td class="messageCell"><strong>Febucci.TextAnimator.Demo.Runtime.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="Febucci.TextAnimator.Editor" /><h3>Febucci.TextAnimator.Editor</h3><table><tr id="Febucci.TextAnimator.EditorHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassFebucci.TextAnimator.Editor"><td class="IconErrorEncoded"><a name="Febucci.TextAnimator.EditorError" /></td><td class="messageCell"><strong>Febucci.TextAnimator.Editor.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="Febucci.TextAnimator.Runtime" /><h3>Febucci.TextAnimator.Runtime</h3><table><tr id="Febucci.TextAnimator.RuntimeHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassFebucci.TextAnimator.Runtime"><td class="IconErrorEncoded"><a name="Febucci.TextAnimator.RuntimeError" /></td><td class="messageCell"><strong>Febucci.TextAnimator.Runtime.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="Febucci.TextAnimator.TMP.Runtime" /><h3>Febucci.TextAnimator.TMP.Runtime</h3><table><tr id="Febucci.TextAnimator.TMP.RuntimeHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassFebucci.TextAnimator.TMP.Runtime"><td class="IconErrorEncoded"><a name="Febucci.TextAnimator.TMP.RuntimeError" /></td><td class="messageCell"><strong>Febucci.TextAnimator.TMP.Runtime.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="MoreMountains.Feedbacks" /><h3>MoreMountains.Feedbacks</h3><table><tr id="MoreMountains.FeedbacksHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassMoreMountains.Feedbacks"><td class="IconErrorEncoded"><a name="MoreMountains.FeedbacksError" /></td><td class="messageCell"><strong>MoreMountains.Feedbacks.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="MoreMountains.Feedbacks.Authorizations" /><h3>MoreMountains.Feedbacks.Authorizations</h3><table><tr id="MoreMountains.Feedbacks.AuthorizationsHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassMoreMountains.Feedbacks.Authorizations"><td class="IconErrorEncoded"><a name="MoreMountains.Feedbacks.AuthorizationsError" /></td><td class="messageCell"><strong>MoreMountains.Feedbacks.Authorizations.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="MoreMountains.Feedbacks.Cinemachine" /><h3>MoreMountains.Feedbacks.Cinemachine</h3><table><tr id="MoreMountains.Feedbacks.CinemachineHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassMoreMountains.Feedbacks.Cinemachine"><td class="IconErrorEncoded"><a name="MoreMountains.Feedbacks.CinemachineError" /></td><td class="messageCell"><strong>MoreMountains.Feedbacks.Cinemachine.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="MoreMountains.Feedbacks.Editor" /><h3>MoreMountains.Feedbacks.Editor</h3><table><tr id="MoreMountains.Feedbacks.EditorHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassMoreMountains.Feedbacks.Editor"><td class="IconErrorEncoded"><a name="MoreMountains.Feedbacks.EditorError" /></td><td class="messageCell"><strong>MoreMountains.Feedbacks.Editor.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="MoreMountains.Feedbacks.HDRP" /><h3>MoreMountains.Feedbacks.HDRP</h3><table><tr id="MoreMountains.Feedbacks.HDRPHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassMoreMountains.Feedbacks.HDRP"><td class="IconErrorEncoded"><a name="MoreMountains.Feedbacks.HDRPError" /></td><td class="messageCell"><strong>MoreMountains.Feedbacks.HDRP.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="MoreMountains.Feedbacks.MMTools" /><h3>MoreMountains.Feedbacks.MMTools</h3><table><tr id="MoreMountains.Feedbacks.MMToolsHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassMoreMountains.Feedbacks.MMTools"><td class="IconErrorEncoded"><a name="MoreMountains.Feedbacks.MMToolsError" /></td><td class="messageCell"><strong>MoreMountains.Feedbacks.MMTools.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="MoreMountains.Feedbacks.NiceVibrations" /><h3>MoreMountains.Feedbacks.NiceVibrations</h3><table><tr id="MoreMountains.Feedbacks.NiceVibrationsHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassMoreMountains.Feedbacks.NiceVibrations"><td class="IconErrorEncoded"><a name="MoreMountains.Feedbacks.NiceVibrationsError" /></td><td class="messageCell"><strong>MoreMountains.Feedbacks.NiceVibrations.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="MoreMountains.Feedbacks.PostProcessing" /><h3>MoreMountains.Feedbacks.PostProcessing</h3><table><tr id="MoreMountains.Feedbacks.PostProcessingHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassMoreMountains.Feedbacks.PostProcessing"><td class="IconErrorEncoded"><a name="MoreMountains.Feedbacks.PostProcessingError" /></td><td class="messageCell"><strong>MoreMountains.Feedbacks.PostProcessing.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="MoreMountains.Feedbacks.TextMeshPro" /><h3>MoreMountains.Feedbacks.TextMeshPro</h3><table><tr id="MoreMountains.Feedbacks.TextMeshProHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassMoreMountains.Feedbacks.TextMeshPro"><td class="IconErrorEncoded"><a name="MoreMountains.Feedbacks.TextMeshProError" /></td><td class="messageCell"><strong>MoreMountains.Feedbacks.TextMeshPro.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="MoreMountains.Feedbacks.URP" /><h3>MoreMountains.Feedbacks.URP</h3><table><tr id="MoreMountains.Feedbacks.URPHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassMoreMountains.Feedbacks.URP"><td class="IconErrorEncoded"><a name="MoreMountains.Feedbacks.URPError" /></td><td class="messageCell"><strong>MoreMountains.Feedbacks.URP.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="MoreMountains.Interface" /><h3>MoreMountains.Interface</h3><table><tr id="MoreMountains.InterfaceHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassMoreMountains.Interface"><td class="IconErrorEncoded"><a name="MoreMountains.InterfaceError" /></td><td class="messageCell"><strong>MoreMountains.Interface.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="MoreMountains.Interface.Editor" /><h3>MoreMountains.Interface.Editor</h3><table><tr id="MoreMountains.Interface.EditorHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassMoreMountains.Interface.Editor"><td class="IconErrorEncoded"><a name="MoreMountains.Interface.EditorError" /></td><td class="messageCell"><strong>MoreMountains.Interface.Editor.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="MoreMountains.InventoryEngine" /><h3>MoreMountains.InventoryEngine</h3><table><tr id="MoreMountains.InventoryEngineHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassMoreMountains.InventoryEngine"><td class="IconErrorEncoded"><a name="MoreMountains.InventoryEngineError" /></td><td class="messageCell"><strong>MoreMountains.InventoryEngine.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="MoreMountains.InventoryEngine.Editor" /><h3>MoreMountains.InventoryEngine.Editor</h3><table><tr id="MoreMountains.InventoryEngine.EditorHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassMoreMountains.InventoryEngine.Editor"><td class="IconErrorEncoded"><a name="MoreMountains.InventoryEngine.EditorError" /></td><td class="messageCell"><strong>MoreMountains.InventoryEngine.Editor.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="MoreMountains.Tools" /><h3>MoreMountains.Tools</h3><table><tr id="MoreMountains.ToolsHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassMoreMountains.Tools"><td class="IconErrorEncoded"><a name="MoreMountains.ToolsError" /></td><td class="messageCell"><strong>MoreMountains.Tools.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="MoreMountains.Tools.Editor" /><h3>MoreMountains.Tools.Editor</h3><table><tr id="MoreMountains.Tools.EditorHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassMoreMountains.Tools.Editor"><td class="IconErrorEncoded"><a name="MoreMountains.Tools.EditorError" /></td><td class="messageCell"><strong>MoreMountains.Tools.Editor.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="MoreMountains.TopDownEngine" /><h3>MoreMountains.TopDownEngine</h3><table><tr id="MoreMountains.TopDownEngineHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassMoreMountains.TopDownEngine"><td class="IconErrorEncoded"><a name="MoreMountains.TopDownEngineError" /></td><td class="messageCell"><strong>MoreMountains.TopDownEngine.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="MoreMountains.TopDownEngine.Editor" /><h3>MoreMountains.TopDownEngine.Editor</h3><table><tr id="MoreMountains.TopDownEngine.EditorHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassMoreMountains.TopDownEngine.Editor"><td class="IconErrorEncoded"><a name="MoreMountains.TopDownEngine.EditorError" /></td><td class="messageCell"><strong>MoreMountains.TopDownEngine.Editor.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="MoreMountains.TopDownEngine.InputSystem" /><h3>MoreMountains.TopDownEngine.InputSystem</h3><table><tr id="MoreMountains.TopDownEngine.InputSystemHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassMoreMountains.TopDownEngine.InputSystem"><td class="IconErrorEncoded"><a name="MoreMountains.TopDownEngine.InputSystemError" /></td><td class="messageCell"><strong>MoreMountains.TopDownEngine.InputSystem.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="NavMeshComponents" /><h3>NavMeshComponents</h3><table><tr id="NavMeshComponentsHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassNavMeshComponents"><td class="IconErrorEncoded"><a name="NavMeshComponentsError" /></td><td class="messageCell"><strong>NavMeshComponents.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="NavMeshComponentsEditor" /><h3>NavMeshComponentsEditor</h3><table><tr id="NavMeshComponentsEditorHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassNavMeshComponentsEditor"><td class="IconErrorEncoded"><a name="NavMeshComponentsEditorError" /></td><td class="messageCell"><strong>NavMeshComponentsEditor.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="PackageToolsEditor" /><h3>PackageToolsEditor</h3><table><tr id="PackageToolsEditorHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="ErrorRowClassPackageToolsEditor"><td class="IconErrorEncoded"><a name="PackageToolsEditorError" /></td><td class="messageCell"><strong>PackageToolsEditor.csproj:
+        </strong><span>이 프로젝트 형식을 기반으로 하는 애플리케이션을 찾지 못했습니다. 추가 정보를 보려면 이 링크를 확인하십시오. http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1</span></td></tr></table><a name="Solution" /><h3 _locID="ProjectDisplayNameHeader">솔루션</h3><table><tr id="SolutionHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">메시지</th></tr><tr name="MessageRowHeaderShowSolution"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="ShowAdditionalMessages" href="#" name="SolutionMessage" onclick="ToggleMessageVisibility('Solution'); return false;">
+          표시 1 추가 메시지
+        </a></td></tr><tr name="MessageRowClassSolution" style="display: none"><td class="IconInfoEncoded"><a name="SolutionMessage" /></td><td class="messageCell"><strong>2D_Project.sln:
+        </strong><span>솔루션 파일은 마이그레이션하지 않아도 됩니다.</span></td></tr><tr style="display: none" name="MessageRowHeaderHideSolution"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="HideAdditionalMessages" href="#" name="SolutionMessage" onclick="ToggleMessageVisibility('Solution'); return false;">
+          숨기기 1 추가 메시지
+        </a></td></tr></table></div></div></body></html>
