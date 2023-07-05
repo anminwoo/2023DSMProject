@@ -18,7 +18,11 @@ namespace Scripts_An
 
         private void Start()
         {
+<<<<<<< HEAD
             //item = chestData.spawnableItems.GetRandom();
+=======
+        //    item = chestData.spawnableItems.GetRandom();
+>>>>>>> main
             _animator = GetComponent<Animator>();
             spriteRenderer = GetComponent<SpriteRenderer>();
         }

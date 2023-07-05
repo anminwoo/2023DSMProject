@@ -1,11 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "ItemData", fileName = "ItemData")]
-public class ItemData : ScriptableObject
+namespace Scripts_An
 {
-    public int damage;
-    public int hp;
-    public float speed;
+    [CreateAssetMenu(menuName = "ItemData", fileName = "ItemData")]
+    public class ItemData : ScriptableObject
+    {
+        public int damage;
+        public int hp;
+        public float speed;
+    }
 }

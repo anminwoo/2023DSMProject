@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Scripts_Baek.Item.Core;
 using UnityEditor;
 using UnityEngine;
+using Item = Scripts_An.Item;
 
 public class ItemSpawnSystem : MonoBehaviour
 {
