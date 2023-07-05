@@ -13,10 +13,10 @@ public class Enemy : MonoBehaviour
     }
     [SerializeField] private EnemyData[] data;
     [SerializeField] private Animator animator;
-    public int damage;
+    public uint damage;
     [SerializeField] private GameObject projectile;
     [SerializeField] private float attackCd;
-    [SerializeField] private int hp;
+    [SerializeField] private uint hp;
     [SerializeField] private float speed;
     Transform target;
     private CircleCollider2D searchCol;
@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void Damaged(int damage)
+    public void Damaged(uint damage)
     {
         animator.SetTrigger("Damaged");
         hp -= damage;
@@ -66,7 +66,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            // 플레이어 체력--;
+            player.currentHp -= damage;
         }
         yield return new WaitForSeconds(attackCd);
         animator.SetBool("isAttacking", false);
