@@ -44,7 +44,7 @@ public class Chest : MonoBehaviour, IInteractable
     public void Open()
     {
         isOpen = true;
-        clip.legacy = true;
+        animator.SetTrigger("open");
         // Item.Core.Item spawnItem = Instantiate(item, transform.position, quaternion.identity);
         // spawnItem.Initialize();
     }
