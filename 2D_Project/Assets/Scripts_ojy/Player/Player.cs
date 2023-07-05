@@ -1,3 +1,4 @@
+using Item.Core;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -7,8 +8,15 @@ namespace Scripts_ojy
     public class Player : MonoBehaviour
     {
         [SerializeField] private Vector2 inputVector;
-        public float speed;
+        public CharacterStatusData statusData;
 
+        public uint maxHp;
+        public uint currentHp;
+        public uint shield;
+        public uint damage;
+        public float speed;
+        public uint defensive;
+        
         private Rigidbody2D _rigid;
         private SpriteRenderer _sr;
         private Animator _anim;
