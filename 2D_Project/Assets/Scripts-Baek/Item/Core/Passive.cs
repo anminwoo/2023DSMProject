@@ -11,13 +11,15 @@ namespace Scripts_Baek.Item.Core
         AttackChange = 1 << 1,
         AddPet = 1 << 2
     }
-    public abstract class Passive : global::Scripts_Baek.Item.Core.Item
+    public abstract class Passive : Item
     {
         [SerializeField] protected PassiveType type;
 
         [SerializeField] protected ChangeStatus change;
         public PassiveType Type => type;
         public ChangeStatus Change => change;
+        
+        
         
         public virtual void OnGet()
         {
