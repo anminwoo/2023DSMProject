@@ -16,7 +16,6 @@ public class Enemy : MonoBehaviour
     public int damage;
     [SerializeField] private GameObject projectile;
     [SerializeField] private float attackCd;
-    [SerializeField] private bool isAttacking;
     [SerializeField] private int hp;
     [SerializeField] private float speed;
     Transform target;
@@ -39,14 +38,6 @@ public class Enemy : MonoBehaviour
         Init(data[type]);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && !isAttacking)
-        {
-            StartCoroutine(Attack(GameManager.Singleton.player, data[type]));
-        }
-    }
-
     void FixedUpdate()
     {
         Vector3 nextVec = target.position - transform.position;
@@ -64,8 +55,8 @@ public class Enemy : MonoBehaviour
     
     public IEnumerator Attack(Player player, EnemyData data)
     {
-        isAttacking = true;
         animator.SetTrigger("Attack");
+        animator.SetBool("isAttacking", true);
         if (data.attackType == AttackType.range)
         {
             Vector3 dir = target.position - transform.position;
@@ -78,12 +69,12 @@ public class Enemy : MonoBehaviour
             // 플레이어 체력--;
         }
         yield return new WaitForSeconds(attackCd);
-        isAttacking = false;
+        animator.SetBool("isAttacking", false);
     }
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player") && !isAttacking)
+        if (other.gameObject.CompareTag("Player") && !animator.GetBool("isAttacking"))
         {
             StartCoroutine(Attack(other.gameObject.GetComponent<Player>(), data[type]));
         }
