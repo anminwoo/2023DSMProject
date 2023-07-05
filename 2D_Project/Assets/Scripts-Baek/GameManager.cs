@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Scripts_Baek.Item.Core;
 using Scripts_ojy;
 using Scripts_ojy.Player;
@@ -26,6 +27,11 @@ namespace Scripts_Baek
                     Destroy(value.gameObject);
                 }
             }
+        }
+
+        private void Start()
+        {
+            AudioManager.instance.PlayBgm(true);
         }
 
         private void Awake()
