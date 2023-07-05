@@ -101,6 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chestData: {fileID: 11400000, guid: 155899995f459dd4fb9fd272b1d75a1d, type: 2}
   isOpen: 0
+  destroyTime: 2
+  item: {fileID: 0}
 --- !u!95 &8210012862593169147
 Animator:
   serializedVersion: 5

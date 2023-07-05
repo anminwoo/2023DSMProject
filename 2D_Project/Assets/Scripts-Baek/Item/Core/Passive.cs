@@ -14,6 +14,7 @@ namespace Scripts_Baek.Item.Core
 
     public enum AttackType
     {
+        NotChange,
         Sword
     }
     public abstract class Passive : Item

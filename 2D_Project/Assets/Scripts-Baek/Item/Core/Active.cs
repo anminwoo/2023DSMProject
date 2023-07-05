@@ -10,7 +10,10 @@ namespace Scripts_Baek.Item.Core
         {
             if (other.transform.CompareTag("Player"))
             {
-                other.transform.GetComponent<Player>().currentActive = this;
+                if (GameManager.Singleton.player.currentActive != null) ItemSpawnSystem.Singleton.SpawnItem(GameManager.Singleton.player.currentActive.gameObject, transform);
+                GameManager.Singleton.player.currentActive = this;
+                gameObject.GetComponent<Collider2D>().enabled = false;
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
             }
         }
 

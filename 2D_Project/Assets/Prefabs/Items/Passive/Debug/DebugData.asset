@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d79278ceb494554aab850d017468858, type: 3}
-  m_Name: TestItem
+  m_Name: DebugData
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 0}
-  itemGrade: 0
-  itemName: "\uD14C\uC2A4\uD2B8 \uC544\uC774\uD15C"
-  itemDescription: "\uD14C\uC2A4\uD2B8\uC6A9 \uC544\uC774\uD15C\uC774\uB2E4."
+  itemIcon: {fileID: 834852548192020694, guid: 4dffe6eab57ca4e4ba2f967307bd1c29, type: 3}
+  itemGrade: 3
+  itemName: Debug Item
+  itemDescription: Just Debug Item.
   itemCost: 0
