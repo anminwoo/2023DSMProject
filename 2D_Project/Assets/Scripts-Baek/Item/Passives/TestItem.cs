@@ -22,7 +22,7 @@ namespace Scripts_Baek.Item.Passives
 
         public override void OnDamage()
         {
-            Debug.Log("디버그 : 플레이어 피해 입음");
+            Debug.Log($"디버그 : 플레이어 피해 입음({GameManager.Singleton.player.finalDamage})");
         }
 
         public override void OnParry()

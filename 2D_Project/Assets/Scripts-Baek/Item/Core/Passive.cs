@@ -11,6 +11,11 @@ namespace Scripts_Baek.Item.Core
         AttackChange = 1 << 1,
         AddPet = 1 << 2
     }
+
+    public enum AttackType
+    {
+        Sword
+    }
     public abstract class Passive : Item
     {
         [SerializeField] protected PassiveType type;
