@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbbc5b3fd0aa3f24eb38bb356b8bca1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
+  hp: 500
   attackCd: 3
   multiShotCount: 10
   summonCount: 3

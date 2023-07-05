@@ -43,6 +43,7 @@ public class GraveKeeper : MonoBehaviour
     public void Damaged(int dmg)
     {
         anim.SetTrigger("damaged");
+        AudioManager.instance.playSfx(AudioManager.Sfx.MonDam);
         hp -= dmg;
         if (hp <= 0)
         {

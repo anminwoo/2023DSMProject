@@ -101,8 +101,7 @@ public class AudioManager : MonoBehaviour
             }
 
             channelIndex = loopIndex;
-            sfxPlayers[0].clip = sfxClips[(int)sfx];
-            sfxPlayers[0].Play();
+            sfxPlayers[0].PlayOneShot(sfxClips[(int)sfx]);
             break;
         }
     }

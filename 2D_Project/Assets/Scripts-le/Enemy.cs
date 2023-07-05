@@ -54,15 +54,10 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    IEnumerator damaged()
-    {
-        yield return new WaitForSeconds(3f);
-        Damaged(3);
-    }
-
     public void Damaged(int damage)
     {
         animator.SetTrigger("Damaged");
+        AudioManager.instance.playSfx(AudioManager.Sfx.MonDam);
         hp -= damage;
         if (hp <= 0)
         {
