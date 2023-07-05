@@ -1,17 +1,17 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+namespace Scripts_An
 {
-    public ItemData itemData;
-    private void OnCollisionEnter2D(Collision2D other)
+    public class Item : MonoBehaviour
     {
-        if (other.gameObject.CompareTag("Player"))
+        public ItemData itemData;
+        private void OnCollisionEnter2D(Collision2D other)
         {
-            var player = other.gameObject.GetComponent<PlayerController>();
-            player.ChangeStatus(itemData);
+            if (other.gameObject.CompareTag("Player"))
+            {
+                var player = other.gameObject.GetComponent<PlayerController>();
+                player.ChangeStatus(itemData);
+            }
         }
     }
 }
