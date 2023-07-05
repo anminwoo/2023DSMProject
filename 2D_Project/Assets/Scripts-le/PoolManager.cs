@@ -18,9 +18,9 @@ public class PoolManager : MonoBehaviour
         
         enemyPool = new ObjectPool<Enemy>(
             SpawnEnemy,
-            OnGet,
-            OnRelease,
-            OnDestroy,
+            onGet,
+            onRelease,
+            onDestroy,
             false,
             defaultCap,
             maxPoolSize);
@@ -33,16 +33,16 @@ public class PoolManager : MonoBehaviour
         return enemy;
     }
 
-    public void OnGet(Enemy enemy)
+    public void onGet(Enemy enemy)
     {
         enemy.gameObject.SetActive(true);
     }
-    public void OnRelease(Enemy enemy)
+    public void onRelease(Enemy enemy)
     {
         enemy.gameObject.SetActive(false);
     }
 
-    public void OnDestroy(Enemy enemy)
+    public void onDestroy(Enemy enemy)
     {
         Destroy(enemy.gameObject);
     }
