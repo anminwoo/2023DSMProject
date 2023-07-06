@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2408f1f60bc8b36488d8d4e8f8c8ea9b, type: 3}
   m_Name: armorSkeleton
   m_EditorClassIdentifier: 
-  maxHp: 0
-  attackCd: 0
-  damage: 0
-  speed: 0
-  searchRange: 0
+  maxHp: 15
+  attackCd: 1
+  damage: 5
+  speed: 0.5
+  searchRange: 15
   attackType: 1
   projectile: {fileID: 2812561389658083557, guid: 58eb9181d5a57e74db66d64ea40582a9,
     type: 3}

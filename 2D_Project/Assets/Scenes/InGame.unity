@@ -350,6 +350,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1477430950}
   gold: 0
+  GraveKeeper: {fileID: 0}
+  FinalBoss: {fileID: 0}
 --- !u!4 &161780460
 Transform:
   m_ObjectHideFlags: 0

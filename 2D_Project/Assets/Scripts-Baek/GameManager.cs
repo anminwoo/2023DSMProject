@@ -41,5 +41,8 @@ namespace Scripts_Baek
         {
             Singleton = this;
         }
+
+        public GameObject GraveKeeper;
+        public GameObject FinalBoss;
     }
 }
