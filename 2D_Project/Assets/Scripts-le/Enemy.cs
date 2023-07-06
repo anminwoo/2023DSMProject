@@ -67,6 +67,10 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         enemyPool.Release(this);
+        if (enemyPool.CountInactive == 0)
+        {
+            BattleSystem.Singleton.BattleStop();
+        }
     }
     
     public IEnumerator Attack(PlayerController player)

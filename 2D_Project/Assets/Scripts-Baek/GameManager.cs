@@ -41,6 +41,5 @@ namespace Scripts_Baek
         {
             Singleton = this;
         }
-
     }
 }
