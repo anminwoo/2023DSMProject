@@ -11,6 +11,7 @@ namespace Scripts_An
         public int currentHp;
         public int currentDamage;
         private bool isDead;
+        public GameObject sword;
 
         [SerializeField] private float currentSpeed;
     
@@ -66,7 +67,6 @@ namespace Scripts_An
         public void Die()
         {
             _anim.SetTrigger("Die");
-            GameObject sword = GetComponentInChildren<GameObject>();
             sword.gameObject.SetActive(false);
             _capCol.enabled = false;
             isDead = true;
