@@ -10,22 +10,30 @@ namespace Scripts_An
         public int maxHp;
         public int currentHp;
         public int currentDamage;
+        private bool isDead;
 
         [SerializeField] private float currentSpeed;
     
         private Rigidbody2D _rigid;
         private SpriteRenderer _sr;
         private Animator _anim;
+        private CapsuleCollider2D _capCol;
 
         private void Start()
         {
             _rigid = GetComponent<Rigidbody2D>();
             _sr = GetComponent<SpriteRenderer>();
             _anim = GetComponent<Animator>();
+            _capCol = GetComponent<CapsuleCollider2D>();
         }
 
         private void Update()
         {
+            if (isDead)
+            {
+                _rigid.velocity = Vector2.zero;
+                return;
+            }
             Vector2 nextVector = inputVector.normalized * currentSpeed;
             _rigid.velocity = nextVector;
         }
@@ -58,6 +66,8 @@ namespace Scripts_An
         public void Die()
         {
             _anim.SetTrigger("Die");
+            _capCol.enabled = false;
+            isDead = true;
             AudioManager.instance.playSfx(AudioManager.Sfx.Plath);
         }
 
