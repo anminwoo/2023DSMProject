@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Scripts_Baek;
 using UnityEngine;
 
 public class BattleSystem : MonoBehaviour
@@ -32,23 +33,18 @@ public class BattleSystem : MonoBehaviour
 
     public int currentWave;
 
-    private void Awake()
-    {
-        Singleton = this;
-    }
+    private void Awake() => Singleton = this;
 
     public void BattleStart()
     {
         isBattle = true;
-        for (int i = lockers.Length - 1; i >= 0; i--)
-        {
-            lockers[i].isTrigger = false;
-        }
+        for (int i = lockers.Length - 1; i >= 0; i--) lockers[i].isTrigger = false;
 
-        for (int i = 0; i < waves[currentWave].enemySpawnCount; i++)
-        {
-            PoolManager.instance.enemyPool.Get();
-        }
+        if (currentWave % 5 != 0)
+            for (int i = 0; i < waves[currentWave].enemySpawnCount; i++)
+                PoolManager.instance.enemyPool.Get();
+        else
+            Instantiate(currentWave % 5 == 1 ? GameManager.Singleton.GraveKeeper : GameManager.Singleton.FinalBoss);
 
         currentWave++;
     }
@@ -56,10 +52,7 @@ public class BattleSystem : MonoBehaviour
     public void BattleStop()
     {
         isBattle = false;
-        for (int i = lockers.Length - 1; i >= 0; i--)
-        {
-            lockers[i].isTrigger = true;
-        }
+        for (int i = lockers.Length - 1; i >= 0; i--) lockers[i].isTrigger = true;
     }
 
     [Serializable]

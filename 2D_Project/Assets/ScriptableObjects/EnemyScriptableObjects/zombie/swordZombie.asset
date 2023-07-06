@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2408f1f60bc8b36488d8d4e8f8c8ea9b, type: 3}
   m_Name: swordZombie
   m_EditorClassIdentifier: 
-  maxHp: 0
-  attackCd: 0
-  damage: 0
-  speed: 0
-  searchRange: 0
+  maxHp: 5
+  attackCd: 0.5
+  damage: 10
+  speed: 1
+  searchRange: 15
+  attackType: 0
   projectile: {fileID: 0}
   controller: {fileID: 22100000, guid: a0093833c499e1049a5990d0b22e7195, type: 2}
