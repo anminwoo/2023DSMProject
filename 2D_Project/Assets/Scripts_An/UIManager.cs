@@ -23,4 +23,9 @@ public class UIManager : MonoBehaviour
         hpSlider.maxValue = GameManager.Singleton.player.maxHp;
         goldText.text = $"{GameManager.Singleton.gold}";
     }
+
+    public void OnClick()
+    {
+        BattleSystem.Singleton.BattleStart();
+    }
 }
