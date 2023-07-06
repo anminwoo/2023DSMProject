@@ -9406,8 +9406,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputVector: {x: 0, y: 0}
-  maxHp: 100
-  currentHp: 100
+  maxHp: 10000
+  currentHp: 10000
   currentDamage: 10
   sword: {fileID: 228343158}
   currentSpeed: 5
@@ -9898,6 +9898,7 @@ MonoBehaviour:
   - enemySpawnCount: 30
   - enemySpawnCount: 0
   currentWave: 0
+  enemyCount: 0
 --- !u!4 &1767920831
 Transform:
   m_ObjectHideFlags: 0

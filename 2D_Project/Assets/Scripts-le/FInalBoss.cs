@@ -47,12 +47,19 @@ public class FInalBoss : MonoBehaviour
         if (hp <= 0)
         {
             anim.SetTrigger("die");
+            StartCoroutine(OnDie());
         }
+    }
+
+    IEnumerator OnDie()
+    {
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
     }
 
     IEnumerator Attack()
     {
-        while (true)
+        while (hp > 0)
         {
             yield return new WaitForSeconds(attackCd);
             anim.SetTrigger("attack");

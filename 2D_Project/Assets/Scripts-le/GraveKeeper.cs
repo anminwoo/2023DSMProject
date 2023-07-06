@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Scripts_Baek;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -48,7 +49,15 @@ public class GraveKeeper : MonoBehaviour
         if (hp <= 0)
         {
             anim.SetTrigger("Die");
+            StartCoroutine(OnDie());
+
         }
+    }
+
+    IEnumerator OnDie()
+    {
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
     }
 
     IEnumerator killEnemy(Enemy enemy)
