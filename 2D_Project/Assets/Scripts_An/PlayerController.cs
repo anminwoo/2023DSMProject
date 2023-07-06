@@ -66,6 +66,8 @@ namespace Scripts_An
         public void Die()
         {
             _anim.SetTrigger("Die");
+            GameObject sword = GetComponentInChildren<GameObject>();
+            sword.gameObject.SetActive(false);
             _capCol.enabled = false;
             isDead = true;
             AudioManager.instance.playSfx(AudioManager.Sfx.Plath);

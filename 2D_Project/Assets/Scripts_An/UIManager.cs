@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
     
     public Slider hpSlider;
     public TextMeshProUGUI goldText;
-
+    public Button waveStart;
     private void Awake()
     {
         instance = this;

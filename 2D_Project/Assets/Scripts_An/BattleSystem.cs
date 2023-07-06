@@ -37,20 +37,30 @@ public class BattleSystem : MonoBehaviour
 
     public void BattleStart()
     {
+        UIManager.instance.waveStart.interactable = false;
         isBattle = true;
         for (int i = lockers.Length - 1; i >= 0; i--) lockers[i].isTrigger = false;
 
-        if (currentWave % 5 != 0)
+        if (currentWave == 5)
+        {
+            Instantiate(GameManager.Singleton.GraveKeeper);
+        }
+        else if (currentWave == 10)
+        {
+            Instantiate(GameManager.Singleton.FinalBoss);
+        }
+        else
+        {
             for (int i = 0; i < waves[currentWave].enemySpawnCount; i++)
                 PoolManager.instance.enemyPool.Get();
-        else
-            Instantiate(currentWave % 5 == 1 ? GameManager.Singleton.GraveKeeper : GameManager.Singleton.FinalBoss);
 
+        }
         currentWave++;
     }
 
     public void BattleStop()
     {
+        UIManager.instance.waveStart.interactable = true;
         isBattle = false;
         for (int i = lockers.Length - 1; i >= 0; i--) lockers[i].isTrigger = true;
     }

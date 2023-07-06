@@ -6,6 +6,7 @@ using Scripts_Baek;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.WSA;
 
 public class Enemy : MonoBehaviour
 {
@@ -67,6 +68,7 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         enemyPool.Release(this);
+        UIManager.instance.goldText.text = $"{++GameManager.Singleton.gold}";
         if (enemyPool.CountInactive == 0)
         {
             BattleSystem.Singleton.BattleStop();

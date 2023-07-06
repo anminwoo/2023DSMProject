@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -28,8 +30,19 @@ public class Gun : MonoBehaviour
 
     private void Rotate()
     {
-        float horizontal = -Input.GetAxis("Mouse X") * rotationSpeed;
-        transform.Rotate(0, 0, horizontal);
+        Vector2 target = transform.position;
+        Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        float Angle = Mathf.Atan2(pos.y - target.y, pos.x - target.x) * Mathf.Rad2Deg - 45;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, Angle));
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Enemy enemy = other.gameObject.GetComponent<Enemy>();
+            enemy.Damaged(damage);
+        }
     }
 
     public IEnumerator Attack()
