@@ -43,6 +43,16 @@ public class Gun : MonoBehaviour
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
             enemy.Damaged(damage);
         }
+        
+        if (other.gameObject.TryGetComponent(out GraveKeeper mBoss))
+        {
+            mBoss.Damaged(damage);
+        }
+
+        if (other.gameObject.TryGetComponent(out FInalBoss boss))
+        {
+            boss.Damaged(damage);
+        }
     }
 
     public IEnumerator Attack()

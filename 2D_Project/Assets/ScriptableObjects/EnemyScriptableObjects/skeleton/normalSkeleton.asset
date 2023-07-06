@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: normalSkeleton
   m_EditorClassIdentifier: 
   maxHp: 5
-  attackCd: 0.5
+  attackCd: 2
   damage: 5
   speed: 2
   searchRange: 15

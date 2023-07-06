@@ -42,12 +42,12 @@ public class GraveKeeper : MonoBehaviour
     
     public void Damaged(int dmg)
     {
-        anim.SetTrigger("damaged");
+        anim.SetTrigger("Damaged");
         AudioManager.instance.playSfx(AudioManager.Sfx.MonDam);
         hp -= dmg;
         if (hp <= 0)
         {
-            anim.SetTrigger("die");
+            anim.SetTrigger("Die");
         }
     }
 

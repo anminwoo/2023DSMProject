@@ -32,6 +32,7 @@ public class BattleSystem : MonoBehaviour
     public Wave[] waves;
 
     public int currentWave;
+    public int enemyCount;
 
     private void Awake() => Singleton = this;
 
@@ -55,6 +56,8 @@ public class BattleSystem : MonoBehaviour
                 PoolManager.instance.enemyPool.Get();
 
         }
+
+        enemyCount = waves[currentWave].enemySpawnCount;
         currentWave++;
     }
 
@@ -63,6 +66,11 @@ public class BattleSystem : MonoBehaviour
         UIManager.instance.waveStart.interactable = true;
         isBattle = false;
         for (int i = lockers.Length - 1; i >= 0; i--) lockers[i].isTrigger = true;
+    }
+
+    public bool IsEnd()
+    {
+        return enemyCount == 0;
     }
 
     [Serializable]

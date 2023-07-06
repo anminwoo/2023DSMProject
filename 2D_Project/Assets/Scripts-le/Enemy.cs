@@ -69,8 +69,10 @@ public class Enemy : MonoBehaviour
     {
         enemyPool.Release(this);
         UIManager.instance.goldText.text = $"{++GameManager.Singleton.gold}";
-        if (enemyPool.CountInactive == 0)
+        BattleSystem.Singleton.enemyCount--;
+        if(BattleSystem.Singleton.IsEnd())
         {
+            Debug.Log("End");
             BattleSystem.Singleton.BattleStop();
         }
     }

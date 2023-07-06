@@ -453,6 +453,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 228418249006699678}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &228343158 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2252878524758689406, guid: 8b5fd2007f68a6f49802a6171920c527,
+    type: 3}
+  m_PrefabInstance: {fileID: 1223154143}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &246317173 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1507044069780220224, guid: 093536ccaac95ee41910a461b0a66b4a,
@@ -6949,6 +6955,11 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 47421343
       objectReference: {fileID: 0}
+    - target: {fileID: 2252878524758689403, guid: 8b5fd2007f68a6f49802a6171920c527,
+        type: 3}
+      propertyPath: coolTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2252878524758689404, guid: 8b5fd2007f68a6f49802a6171920c527,
         type: 3}
       propertyPath: m_Offset.x
@@ -9398,6 +9409,7 @@ MonoBehaviour:
   maxHp: 100
   currentHp: 100
   currentDamage: 10
+  sword: {fileID: 228343158}
   currentSpeed: 5
 --- !u!70 &1477430951
 CapsuleCollider2D:
